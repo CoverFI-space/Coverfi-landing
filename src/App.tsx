@@ -12,9 +12,9 @@ type NavItem = { label: string; href: string; target?: string; key: string };
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/", key: "home" },
-  { label: "Pricing", href: "#pricing", key: "pricing" },
-  { label: "FAQs", href: "#faqs", target: "faqs", key: "faqs" },
-  { label: "Contact us", href: "#contact", key: "contact" },
+  { label: "Pricing", href: "/pricing", target: "pricing", key: "pricing" },
+  { label: "FAQs", href: "/faqs", target: "faqs", key: "faqs" },
+  { label: "Contact us", href: "/contact", target: "contact", key: "contact" },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -41,11 +41,19 @@ function triggerSectionTransition(origin: TransitionOrigin = "bottom") {
   );
 }
 
-function goToSection(event: MouseEvent<HTMLElement>, targetId: string) {
+function goToSection(
+  event: MouseEvent<HTMLElement>,
+  targetId: string,
+  routePath?: string,
+) {
   const target = document.getElementById(targetId);
   if (!target) return;
 
   event.preventDefault();
+  const nextPath =
+    routePath && routePath.startsWith("/") ? routePath : `/${targetId}`;
+  window.history.pushState({}, "", nextPath);
+
   const targetTop = target.getBoundingClientRect().top + window.scrollY;
   triggerSectionTransition(targetTop >= window.scrollY ? "bottom" : "top");
 
@@ -63,7 +71,7 @@ function goToLogicApp(event: MouseEvent<HTMLElement>, route: string) {
   triggerSectionTransition("bottom");
 
   window.setTimeout(() => {
-    window.location.href = getLogicAppHref(route);
+    window.location.assign(getLogicAppHref(route));
   }, 240);
 }
 
@@ -134,12 +142,8 @@ function SiteNav({
                 style={{ color: isActive ? activeColor : defaultColor }}
                 onClick={(event) => {
                   if (item.target) {
-                    goToSection(event, item.target);
+                    goToSection(event, item.target, item.href);
                     return;
-                  }
-
-                  if (item.href.startsWith("#")) {
-                    triggerSectionTransition("bottom");
                   }
                 }}>
                 {" "}
@@ -208,9 +212,31 @@ function SectionTransitionOverlay() {
       setTransitionKey((key) => key + 1);
     };
 
+    const syncRouteToSection = () => {
+      const routeToSection: Record<string, string> = {
+        "/pricing": "pricing",
+        "/contact": "contact",
+        "/faqs": "faqs",
+      };
+
+      const targetId = routeToSection[window.location.pathname];
+      if (!targetId) return;
+
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      window.setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 240);
+    };
+
+    syncRouteToSection();
     window.addEventListener("section-transition", onManualTransition);
-    return () =>
+    window.addEventListener("popstate", syncRouteToSection);
+    return () => {
       window.removeEventListener("section-transition", onManualTransition);
+      window.removeEventListener("popstate", syncRouteToSection);
+    };
   }, []);
 
   return (
@@ -725,9 +751,9 @@ function FooterSection() {
       title: "Explore",
       links: [
         { label: "Home", href: "/" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "FAQs", target: "faqs" },
-        { label: "Contact us", href: "#contact" },
+        { label: "Pricing", href: "/pricing", target: "pricing" },
+        { label: "FAQs", target: "faqs", href: "/faqs" },
+        { label: "Contact us", href: "/contact", target: "contact" },
       ],
     },
     {
@@ -785,14 +811,18 @@ function FooterSection() {
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row md:items-start">
                   <a
-                    href="#contact"
-                    onClick={() => triggerSectionTransition("bottom")}
+                    href="/contact"
+                    onClick={(event) =>
+                      goToSection(event, "contact", "/contact")
+                    }
                     className="inline-flex rounded-full bg-[#E1E0CC] px-7 py-4 text-sm uppercase tracking-widest text-black transition-transform hover:scale-105">
                     Send enquiry
                   </a>
                   <a
-                    href="#pricing"
-                    onClick={() => triggerSectionTransition("bottom")}
+                    href="/pricing"
+                    onClick={(event) =>
+                      goToSection(event, "pricing", "/pricing")
+                    }
                     className="inline-flex rounded-full border border-[#E1E0CC]/35 px-7 py-4 text-sm uppercase tracking-widest text-[#E1E0CC] transition-colors hover:bg-[#E1E0CC] hover:text-black">
                     View pricing
                   </a>
@@ -814,8 +844,8 @@ function FooterSection() {
                   </h3>
                 </div>
                 <a
-                  href="#contact"
-                  onClick={() => triggerSectionTransition("bottom")}
+                  href="/contact"
+                  onClick={(event) => goToSection(event, "contact", "/contact")}
                   className="inline-flex w-fit rounded-full bg-[#E1E0CC] px-7 py-4 text-sm uppercase tracking-widest text-black transition-transform hover:scale-105">
                   Send enquiry
                 </a>
@@ -830,19 +860,23 @@ function FooterSection() {
                       {column.links.map((link) => (
                         <a
                           key={link.label}
-                          href={link.target ? `#${link.target}` : link.href}
+                          href={
+                            link.target
+                              ? (link.href ?? `/${link.target}`)
+                              : link.href
+                          }
                           target={link.external ? "_blank" : undefined}
                           rel={link.external ? "noreferrer" : undefined}
                           onClick={(event) => {
                             if (link.external) return;
 
                             if (link.target) {
-                              goToSection(event, link.target);
+                              goToSection(
+                                event,
+                                link.target,
+                                link.href ?? `/${link.target}`,
+                              );
                               return;
-                            }
-
-                            if (link.href?.startsWith("#")) {
-                              triggerSectionTransition("bottom");
                             }
                           }}
                           className="coverfi-nav-link text-base text-[#E1E0CC]/70 transition-colors hover:text-[#E1E0CC]">
