@@ -1008,7 +1008,7 @@ function ContactPage() {
             <select
               value={topic}
               onChange={(event) => setTopic(event.target.value)}
-              className="mt-3 w-full rounded-2xl border border-[#E1E0CC]/15 bg-black/35 px-5 py-4 text-sm text-[#E1E0CC] outline-none focus:border-[#E1E0CC]/45">
+              className="mt-3 w-full appearance-none rounded-2xl border border-[#E1E0CC]/15 bg-black/35 px-5 py-4 pr-12 text-sm text-[#E1E0CC] outline-none transition-colors focus:border-[#E1E0CC]/45 focus:bg-black/45">
               <option>Asset cover</option>
               <option>Pricing</option>
               <option>Reward receipt</option>
