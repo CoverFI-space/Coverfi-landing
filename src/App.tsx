@@ -35,7 +35,7 @@ function getDefaultAppUrl() {
 const logicAppBaseUrl = (
   import.meta.env.VITE_COVERFI_APP_URL || getDefaultAppUrl()
 ).replace(/\/$/, "");
-const githubUrl = import.meta.env.VITE_COVERFI_GITHUB_URL || "https://github.com/";
+const githubUrl = import.meta.env.VITE_COVERFI_GITHUB_URL || "https://github.com/CoverFI-space/";
 
 function triggerSectionTransition(origin: TransitionOrigin = "bottom") {
   window.dispatchEvent(
