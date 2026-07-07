@@ -15,6 +15,7 @@ const navItems: NavItem[] = [
   { label: "Pricing", href: "/pricing", target: "pricing", key: "pricing" },
   { label: "FAQs", href: "/faqs", target: "faqs", key: "faqs" },
   { label: "Contact us", href: "/contact", target: "contact", key: "contact" },
+  { label: "Docs", href: "https://docs.coverfi.space", key: "docs" },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
