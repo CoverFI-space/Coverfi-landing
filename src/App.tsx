@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Menu, Star, X } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -34,6 +34,7 @@ function getDefaultAppUrl() {
 const logicAppBaseUrl = (
   import.meta.env.VITE_COVERFI_APP_URL || getDefaultAppUrl()
 ).replace(/\/$/, "");
+const githubUrl = import.meta.env.VITE_COVERFI_GITHUB_URL || "https://github.com/";
 
 function triggerSectionTransition(origin: TransitionOrigin = "bottom") {
   window.dispatchEvent(
@@ -92,6 +93,7 @@ function SiteNav({
 }) {
   const navRef = useRef<HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const nav = navRef.current;
@@ -123,12 +125,15 @@ function SiteNav({
   return (
     <nav
       ref={navRef}
-      className={`z-50 bg-black px-3 py-2 md:rounded-b-3xl md:px-5 w-fit max-w-[860px] mx-auto ${className}`}>
-      <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4">
-        <a href="/" className="inline-flex items-center">
-          <img src="/logo.png" alt="CoverFi" className="h-10 w-auto" />
+      className={`z-50 mx-auto w-[calc(100%-1rem)] max-w-[860px] rounded-b-2xl bg-black/92 px-3 py-2 backdrop-blur-xl sm:w-fit md:rounded-b-3xl md:px-5 ${isScrolled ? "shadow-[0_18px_60px_rgba(0,0,0,0.22)]" : ""} ${className}`}>
+      <div className="relative flex items-center justify-between gap-3 md:justify-center md:gap-4">
+        <a
+          href="/"
+          className="inline-flex items-center"
+          onClick={() => setIsMenuOpen(false)}>
+          <img src="/logo.png" alt="CoverFi" className="h-9 w-auto md:h-10" />
         </a>
-        <div className="flex flex-wrap items-center gap-6 sm:gap-7 md:gap-8 lg:gap-9">
+        <div className="hidden items-center gap-7 md:flex lg:gap-9">
           {navItems.map((item) => {
             const isActive = active === item.key;
             const defaultColor = "rgba(225, 224, 204, 0.8)";
@@ -141,18 +146,52 @@ function SiteNav({
                 className={`coverfi-nav-link whitespace-nowrap text-[10px] transition-colors sm:text-xs md:text-sm ${isActive ? "coverfi-nav-link--active" : ""}`}
                 style={{ color: isActive ? activeColor : defaultColor }}
                 onClick={(event) => {
+                  setIsMenuOpen(false);
                   if (item.target) {
                     goToSection(event, item.target, item.href);
                     return;
                   }
                 }}>
-                {" "}
                 {item.label}
               </a>
             );
           })}
         </div>
+        <button
+          type="button"
+          aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E1E0CC]/15 text-[#E1E0CC] transition-colors hover:bg-[#E1E0CC] hover:text-black md:hidden">
+          {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </button>
       </div>
+      {isMenuOpen && (
+        <div className="mt-3 grid gap-1 border-t border-[#E1E0CC]/10 pt-3 md:hidden">
+          {navItems.map((item) => {
+            const isActive = active === item.key;
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`rounded-xl px-3 py-3 text-sm transition-colors ${
+                  isActive
+                    ? "bg-[#E1E0CC] text-black"
+                    : "text-[#E1E0CC]/75 hover:bg-[#E1E0CC]/10 hover:text-[#E1E0CC]"
+                }`}
+                onClick={(event) => {
+                  setIsMenuOpen(false);
+                  if (item.target) {
+                    goToSection(event, item.target, item.href);
+                  }
+                }}>
+                {item.label}
+              </a>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 }
@@ -303,8 +342,8 @@ function SectionTransitionOverlay() {
 
 function Hero() {
   return (
-    <section className="h-screen bg-black p-4 md:p-6">
-      <div className="relative h-full overflow-hidden rounded-2xl md:rounded-[2rem]">
+    <section className="min-h-[100svh] bg-black p-2 sm:p-4 md:p-6">
+      <div className="relative min-h-[calc(100svh-1rem)] overflow-hidden rounded-2xl sm:min-h-[calc(100svh-2rem)] md:min-h-[calc(100svh-3rem)] md:rounded-[2rem]">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src={heroVideo}
@@ -319,12 +358,12 @@ function Hero() {
 
         <SiteNav
           active="home"
-          className="fixed left-1/2 top-0 z-50 -translate-x-1/2"
+          className="fixed left-1/2 top-2 z-50 -translate-x-1/2 md:top-0"
         />
 
-        <div className="absolute bottom-0 left-0 right-0 z-10 p-4 sm:p-6 md:p-8">
+        <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pt-24 sm:p-6 md:p-8">
           <div className="grid items-end gap-6 md:grid-cols-12">
-            <h1 className="md:col-span-8 text-[21vw] font-medium leading-[0.85] tracking-[-0.07em] text-[#E1E0CC] sm:text-[20vw] md:text-[17vw] lg:text-[15vw] xl:text-[14vw] 2xl:text-[15vw]">
+            <h1 className="md:col-span-8 text-[21vw] font-medium leading-[0.85] tracking-[-0.04em] text-[#E1E0CC] sm:text-[20vw] md:text-[17vw] md:tracking-[-0.07em] lg:text-[15vw] xl:text-[14vw] 2xl:text-[15vw]">
               <WordsPullUp text="CoverFi" />
             </h1>
             <div className="pb-2 md:col-span-4 md:pb-7">
@@ -340,8 +379,19 @@ function Hero() {
                 CoverFi helps you protect your assets, watch live prices, and
                 get rewards through wallet-signed cover plans.
               </motion.p>
-              <motion.button
-                type="button"
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.62,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="mt-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-primary/60">
+                <Star className="h-3.5 w-3.5" />
+                Open source on GitHub
+              </motion.p>
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -349,13 +399,25 @@ function Hero() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group mt-5 flex items-center gap-2 rounded-full bg-primary py-1.5 pl-5 pr-1.5 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
-                onClick={(event) => goToLogicApp(event, "login")}>
-                Open CoverFi
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
-                  <ArrowRight className="h-4 w-4 text-primary" />
-                </span>
-              </motion.button>
+                className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <button
+                  type="button"
+                  className="group flex items-center justify-center gap-2 rounded-full bg-primary py-1.5 pl-5 pr-1.5 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
+                  onClick={(event) => goToLogicApp(event, "login")}>
+                  Open CoverFi
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
+                    <ArrowRight className="h-4 w-4 text-primary" />
+                  </span>
+                </button>
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-black/25 py-3 pl-5 pr-4 text-sm font-medium text-primary backdrop-blur transition-colors hover:border-primary/60 hover:bg-primary hover:text-black">
+                  <Star className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  Star on GitHub
+                </a>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -735,11 +797,24 @@ function FaqSection() {
 
 function FooterSection() {
   const ref = useRef(null);
+  const [usesHorizontalFooter, setUsesHorizontalFooter] = useState(() =>
+    typeof window === "undefined"
+      ? true
+      : window.matchMedia("(min-width: 768px)").matches,
+  );
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-100vw"]);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const update = () => setUsesHorizontalFooter(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   type FooterLink = {
     label: string;
     target?: string;
@@ -768,7 +843,7 @@ function FooterSection() {
     {
       title: "Social",
       links: [
-        { label: "GitHub", href: "https://github.com/", external: true },
+        { label: "GitHub", href: githubUrl, external: true },
         { label: "X", href: "https://x.com/", external: true },
         {
           label: "LinkedIn",
@@ -785,10 +860,10 @@ function FooterSection() {
   ];
 
   return (
-    <section ref={ref} className="relative h-[200vh] bg-black">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.div style={{ x }} className="relative flex h-full w-[200vw]">
-          <section className="relative flex h-screen w-screen shrink-0 items-center justify-center overflow-hidden bg-black px-6 text-[#E1E0CC]">
+    <section ref={ref} className="relative bg-black md:h-[200vh]">
+      <div className="overflow-hidden md:sticky md:top-0 md:h-screen">
+        <motion.div style={usesHorizontalFooter ? { x } : undefined} className="relative flex flex-col md:h-full md:w-[200vw] md:flex-row">
+          <section className="relative flex min-h-[100svh] w-full shrink-0 items-center justify-center overflow-hidden bg-black px-4 py-20 text-[#E1E0CC] sm:px-6 md:h-screen md:w-screen md:py-0">
             <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay" />
             <div className="grid w-full max-w-6xl items-center gap-8 md:grid-cols-[0.9fr_1.1fr]">
               <div className="liquid-glass mx-auto aspect-square w-64 overflow-hidden rounded-3xl p-4 md:w-96">
@@ -831,7 +906,7 @@ function FooterSection() {
             </div>
           </section>
 
-          <section className="relative flex h-screen w-screen shrink-0 items-center overflow-hidden border-l border-[#E1E0CC]/10 bg-black px-6 text-[#E1E0CC]">
+          <section className="relative flex min-h-[100svh] w-full shrink-0 items-center overflow-hidden border-t border-[#E1E0CC]/10 bg-black px-4 py-20 text-[#E1E0CC] sm:px-6 md:h-screen md:w-screen md:border-l md:border-t-0 md:py-0">
             <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay" />
             <div className="relative mx-auto grid w-full max-w-6xl gap-10 md:grid-cols-[1fr_1.25fr]">
               <div className="flex flex-col justify-between gap-10">
@@ -964,7 +1039,7 @@ function ContactPage() {
   const [customTopic, setCustomTopic] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const socialLinks = [
-    { label: "GitHub", href: "https://github.com/", mark: "GH" },
+    { label: "GitHub", href: githubUrl, mark: "GH" },
     { label: "X", href: "https://x.com/", mark: "X" },
     { label: "LinkedIn", href: "https://www.linkedin.com/", mark: "in" },
     { label: "Instagram", href: "https://www.instagram.com/", mark: "IG" },
