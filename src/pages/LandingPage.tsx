@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, MouseEvent } from "react";
+import { useLocation } from "react-router-dom";
 import { docsUrl, getLogicAppHref, githubUrl } from "../lib/links";
 
 const heroVideo =
@@ -1171,17 +1172,11 @@ function ContactPage() {
 }
 
 export default function App() {
-  const [route, setRoute] = useState(() =>
-    window.location.hash.replace("#", ""),
-  );
+  const location = useLocation();
+  const route =
+    location.hash.replace("#", "") ||
+    location.pathname.replace(/^\/+/, "").replace(/\/$/, "");
   const routeName = route.split("?")[0];
-
-  useEffect(() => {
-    const onHashChange = () => setRoute(window.location.hash.replace("#", ""));
-
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
 
   useEffect(() => {
     const landingSections = [
