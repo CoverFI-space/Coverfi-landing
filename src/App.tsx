@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Menu, Star, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Menu, Star, X } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +13,7 @@ type NavItem = { label: string; href: string; target?: string; key: string };
 const navItems: NavItem[] = [
   { label: "Home", href: "/", key: "home" },
   { label: "Pricing", href: "/pricing", target: "pricing", key: "pricing" },
+  { label: "Get started", href: "/get-started", target: "get-started", key: "get-started" },
   { label: "FAQs", href: "/faqs", target: "faqs", key: "faqs" },
   { label: "Contact us", href: "/contact", target: "contact", key: "contact" },
   { label: "Docs", href: "https://docs.coverfi.space", key: "docs" },
@@ -255,6 +256,7 @@ function SectionTransitionOverlay() {
     const syncRouteToSection = () => {
       const routeToSection: Record<string, string> = {
         "/pricing": "pricing",
+        "/get-started": "get-started",
         "/contact": "contact",
         "/faqs": "faqs",
       };
@@ -657,7 +659,7 @@ function ServicesSection() {
   const cards = [
     {
       video:
-        "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4",
+        "https://cdn.pixabay.com/video/2023/03/23/155819-811140098_large.mp4",
       tag: "Cover",
       title: "Asset Cover",
       description:
@@ -667,7 +669,7 @@ function ServicesSection() {
     },
     {
       video:
-        "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4",
+        "https://cdn.pixabay.com/video/2022/07/02/122881-726547787_large.mp4",
       tag: "Markets",
       title: "Live Prices",
       description:
@@ -739,12 +741,78 @@ function ServicesSection() {
   );
 }
 
+function GetStartedSection() {
+  const steps = [
+    {
+      title: "Open the app",
+      detail:
+        "Connect Freighter, accept the terms notice, and choose the Stellar network you want to use.",
+    },
+    {
+      title: "Set up your account",
+      detail:
+        "Claim a CoverFi username so payments, receipts, and history can be linked to your wallet.",
+    },
+    {
+      title: "Create a draft",
+      detail:
+        "Use Protect directly or ask CoverFi AI to prepare a reviewable protection or payment draft.",
+    },
+    {
+      title: "Review and sign",
+      detail:
+        "Check the fee, asset, amount, trigger, and wallet details. Only your wallet can approve transactions.",
+    },
+  ];
+
+  return (
+    <section id="get-started" className="bg-black px-6 py-28 md:py-40">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/40">
+              Get started
+            </p>
+            <h2 className="font-serif text-5xl italic leading-none text-white md:text-7xl">
+              Four steps to your first review.
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={(event) => goToLogicApp(event, "login")}
+            className="inline-flex w-fit items-center gap-3 rounded-full bg-[#E1E0CC] px-7 py-4 text-sm uppercase tracking-widest text-black transition-transform hover:scale-105">
+            Open app
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-4">
+          {steps.map((step, index) => (
+            <article
+              key={step.title}
+              className="liquid-glass rounded-3xl p-6 md:p-7">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/35">
+                0{index + 1}
+              </p>
+              <h3 className="mt-5 text-xl text-white">{step.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/55">
+                {step.detail}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FaqSection() {
+  const [openQuestion, setOpenQuestion] = useState("What does CoverFi do?");
   const faqs = [
     {
       question: "What does CoverFi do?",
       answer:
-        "CoverFi lets you create a simple asset cover plan, watch live prices, and request rewards if your cover is activated.",
+        "CoverFi helps Stellar users create reviewable asset cover positions, monitor live prices, manage private receipts, resolve usernames, and use AI as a support layer.",
     },
     {
       question: "Do I need to give CoverFi my wallet keys?",
@@ -754,17 +822,22 @@ function FaqSection() {
     {
       question: "How much does it cost?",
       answer:
-        "Fees usually range from 0.1% to 2% depending on the amount and cover setup. You can view the fee before using the app.",
+        "Fees depend on amount, duration, asset, and reserve settings. The app shows the fee before you continue, and fees are non-refundable once a signed transaction is accepted.",
     },
     {
       question: "Where is the money kept?",
       answer:
-        "Covered funds are handled through a shared protection pool designed to support valid reward requests. The page keeps the details simple so users can understand the product quickly.",
+        "The contract model separates protected balances, premiums, reserves, and oracle data. Reserve liquidity supports eligible claims, but CoverFi protection is not insurance and payouts are not guaranteed.",
     },
     {
       question: "What is a private receipt?",
       answer:
         "It is a clean record for each reward request you create, including the main details you may want to keep for yourself.",
+    },
+    {
+      question: "Can CoverFi AI create actions for me?",
+      answer:
+        "CoverFi AI can prepare reviewable payment and protection drafts inside the website. It cannot sign transactions, move funds, or bypass your wallet approval.",
     },
   ];
 
@@ -779,16 +852,31 @@ function FaqSection() {
         </h2>
         <div className="mt-12 grid gap-4">
           {faqs.map((item) => (
-            <article
+            <button
+              type="button"
               key={item.question}
-              className="liquid-glass rounded-3xl p-6 md:p-8">
-              <h3 className="text-xl text-white md:text-2xl">
-                {item.question}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-white/55 md:text-base">
-                {item.answer}
-              </p>
-            </article>
+              onClick={() =>
+                setOpenQuestion((current) =>
+                  current === item.question ? "" : item.question,
+                )
+              }
+              className="liquid-glass rounded-3xl p-6 text-left transition-transform hover:-translate-y-0.5 md:p-8">
+              <span className="flex items-center justify-between gap-5">
+                <span className="text-xl text-white md:text-2xl">
+                  {item.question}
+                </span>
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-white/55 transition-transform ${
+                    openQuestion === item.question ? "rotate-180" : ""
+                  }`}
+                />
+              </span>
+              {openQuestion === item.question && (
+                <span className="mt-4 block max-w-3xl text-sm leading-relaxed text-white/55 md:text-base">
+                  {item.answer}
+                </span>
+              )}
+            </button>
           ))}
         </div>
       </div>
@@ -839,6 +927,7 @@ function FooterSection() {
         { label: "Live prices", target: "featured" },
         { label: "Asset cover", target: "about" },
         { label: "Login", href: getLogicAppHref("login") },
+        { label: "Terms", href: getLogicAppHref("terms") },
       ],
     },
     {
@@ -974,19 +1063,24 @@ function FooterSection() {
 function PricingPage() {
   const tiers = [
     {
-      label: "Small cover",
-      fee: "0.1% - 0.5%",
-      detail: "For lighter asset cover and short-term protection.",
+      label: "1 day",
+      fee: "0.30%",
+      detail: "For quick short-term protection.",
     },
     {
-      label: "Standard cover",
-      fee: "0.5% - 1.2%",
-      detail: "For most users who want a balanced fee and cover amount.",
+      label: "7 days",
+      fee: "1.00%",
+      detail: "For short cover with a clear weekly premium.",
     },
     {
-      label: "Larger cover",
-      fee: "1.2% - 2%",
-      detail: "For larger amounts that need more pool support.",
+      label: "14 days",
+      fee: "1.50%",
+      detail: "For balanced two-week protection.",
+    },
+    {
+      label: "30 days",
+      fee: "2.50%",
+      detail: "For the longest available cover period.",
     },
   ];
 
@@ -1002,11 +1096,12 @@ function PricingPage() {
           Fees that stay clear.
         </h1>
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[#E1E0CC]/60 md:text-lg">
-          CoverFi charges between 0.1% and 2% depending on how much you protect
-          and the cover setup. You see the fee before you continue.
+          CoverFi charges a duration-based premium: 0.30% for 1 day, 1.00%
+          for 7 days, 1.50% for 14 days, and 2.50% for 30 days. You see the
+          fee before you continue.
         </p>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-4">
           {tiers.map((tier) => (
             <article
               key={tier.label}
@@ -1194,6 +1289,7 @@ export default function App() {
       "philosophy",
       "what-we-do",
       "services",
+      "get-started",
       "faqs",
       "footer",
     ];
@@ -1212,6 +1308,7 @@ export default function App() {
       "dashboard",
       "pricing",
       "contact",
+      "terms",
       "asset-cover",
       "live-prices",
     ];
@@ -1262,6 +1359,10 @@ export default function App() {
     return <ContactPage />;
   }
 
+  if (routeName === "terms") {
+    return <LogicAppRedirect route="terms" />;
+  }
+
   if (routeName === "asset-cover") {
     return <LogicAppRedirect route="app/protect" />;
   }
@@ -1290,6 +1391,9 @@ export default function App() {
       </div>
       <div id="services" data-scroll-section>
         <ServicesSection />
+      </div>
+      <div id="get-started" data-scroll-section>
+        <GetStartedSection />
       </div>
       <div data-scroll-section>
         <FaqSection />
