@@ -5,7 +5,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent, MouseEvent } from "react";
 import { useLocation } from "react-router-dom";
-import { docsUrl, getLogicAppHref, githubUrl } from "../lib/links";
+import {
+  docsUrl,
+  getLogicAppHref,
+  githubUrl,
+  statusUrl,
+  supportEmail,
+  xUrl,
+} from "../lib/links";
 
 const heroVideo =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4";
@@ -14,9 +21,9 @@ type NavItem = { label: string; href: string; target?: string; key: string };
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/", key: "home" },
-  { label: "Pricing", href: "/pricing", target: "pricing", key: "pricing" },
-  { label: "Get started", href: "/get-started", target: "get-started", key: "get-started" },
+  { label: "Whitepaper", href: "/whitepaper", key: "whitepaper" },
   { label: "FAQs", href: "/faqs", key: "faqs" },
+  { label: "Status", href: statusUrl, key: "status" },
   { label: "Contact us", href: "/contact", target: "contact", key: "contact" },
   { label: "Docs", href: docsUrl, key: "docs" },
 ];
@@ -67,7 +74,7 @@ function LogicAppRedirect({ route }: { route: string }) {
   return null;
 }
 
-function SiteNav({
+export function SiteNav({
   active = "home",
   className = "",
 }: {
@@ -237,7 +244,6 @@ function SectionTransitionOverlay() {
     const syncRouteToSection = () => {
       const routeToSection: Record<string, string> = {
         "/pricing": "pricing",
-        "/get-started": "get-started",
         "/contact": "contact",
       };
 
@@ -382,10 +388,10 @@ function Hero() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <button
                   type="button"
-                  className="group flex items-center justify-center gap-2 rounded-full bg-primary py-1.5 pl-5 pr-1.5 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
+                  className="group flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary py-1.5 pl-5 pr-1.5 text-sm font-medium text-black transition-all hover:gap-3 sm:text-base"
                   onClick={(event) => goToLogicApp(event, "login")}>
                   Open CoverFi
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
@@ -396,7 +402,7 @@ function Hero() {
                   href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-black/25 py-3 pl-5 pr-4 text-sm font-medium text-primary backdrop-blur transition-colors hover:border-primary/60 hover:bg-primary hover:text-black">
+                  className="group inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-primary/30 bg-black/25 py-3 pl-5 pr-4 text-sm font-medium text-primary backdrop-blur transition-colors hover:border-primary/60 hover:bg-primary hover:text-black">
                   <Star className="h-4 w-4 transition-transform group-hover:scale-110" />
                   Star on GitHub
                 </a>
@@ -465,8 +471,8 @@ function FeaturedVideoSection() {
               Simple asset cover
             </p>
             <p className="text-sm leading-relaxed text-white md:text-base">
-              Choose an asset, set your safety price, and keep every important
-              action signed from your own Stellar wallet.
+              Choose an asset, amount, and duration while every important
+              action stays signed from your own Stellar wallet.
             </p>
           </div>
           <motion.button
@@ -519,8 +525,8 @@ function PhilosophySection() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center">
             <TextBlock label="Choose your asset">
-              Pick the asset you want to protect, enter the amount, and choose
-              the price where you want your cover to activate.
+              Pick the asset you want to protect, enter the amount, and let the
+              contract capture the fresh oracle entry price.
             </TextBlock>
             <div className="my-10 h-px w-full bg-white/10" />
             <TextBlock label="Stay in control">
@@ -577,7 +583,7 @@ function WhatWeDoSection() {
               </h3>
               <p className="mt-12 max-w-[280px] text-[13px] font-light leading-relaxed text-white/70 sm:mt-20 sm:text-[14px]">
                 Create a simple cover plan before prices move too far. You
-                choose the asset, amount, and safety price in plain terms.
+                choose the asset, amount, and duration in plain terms.
               </p>
               <span className="mt-auto inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.28em] text-white/45 transition-colors group-hover:text-white">
                 Open asset cover
@@ -643,7 +649,7 @@ function ServicesSection() {
       tag: "Cover",
       title: "Asset Cover",
       description:
-        "Create wallet-signed cover plans that track amount, fee, safety price, expiry, and reward status.",
+        "Create wallet-signed cover plans that track amount, fee, entry price, expiry, and reward status.",
       href: getLogicAppHref("app/protect"),
       route: "app/protect",
     },
@@ -721,71 +727,6 @@ function ServicesSection() {
   );
 }
 
-function GetStartedSection() {
-  const steps = [
-    {
-      title: "Open the app",
-      detail:
-        "Connect Freighter, accept the terms notice, and choose the Stellar network you want to use.",
-    },
-    {
-      title: "Set up your account",
-      detail:
-        "Claim a CoverFi username so payments, receipts, and history can be linked to your wallet.",
-    },
-    {
-      title: "Create a draft",
-      detail:
-        "Use Protect directly or ask CoverFi AI to prepare a reviewable protection or payment draft.",
-    },
-    {
-      title: "Review and sign",
-      detail:
-        "Check the fee, asset, amount, trigger, and wallet details. Only your wallet can approve transactions.",
-    },
-  ];
-
-  return (
-    <section id="get-started" className="bg-black px-6 py-28 md:py-40">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="mb-5 text-xs uppercase tracking-[0.35em] text-white/40">
-              Get started
-            </p>
-            <h2 className="font-serif text-5xl italic leading-none text-white md:text-7xl">
-              Four steps to your first review.
-            </h2>
-          </div>
-          <button
-            type="button"
-            onClick={(event) => goToLogicApp(event, "login")}
-            className="inline-flex w-fit items-center gap-3 rounded-full bg-[#E1E0CC] px-7 py-4 text-sm uppercase tracking-widest text-black transition-transform hover:scale-105">
-            Open app
-            <ArrowRight className="h-4 w-4" />
-          </button>
-        </div>
-
-        <div className="mt-12 grid gap-4 md:grid-cols-4">
-          {steps.map((step, index) => (
-            <article
-              key={step.title}
-              className="liquid-glass rounded-3xl p-6 md:p-7">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/35">
-                0{index + 1}
-              </p>
-              <h3 className="mt-5 text-xl text-white">{step.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-white/55">
-                {step.detail}
-              </p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function FooterSection() {
   const ref = useRef(null);
   const [usesHorizontalFooter, setUsesHorizontalFooter] = useState(() =>
@@ -828,6 +769,7 @@ function FooterSection() {
         { label: "What we do", target: "what-we-do" },
         { label: "Live prices", target: "featured" },
         { label: "Asset cover", target: "about" },
+        { label: "Status", href: statusUrl },
         { label: "Login", href: getLogicAppHref("login") },
         { label: "Terms", href: getLogicAppHref("terms") },
       ],
@@ -836,17 +778,8 @@ function FooterSection() {
       title: "Social",
       links: [
         { label: "GitHub", href: githubUrl, external: true },
-        { label: "X", href: "https://x.com/", external: true },
-        {
-          label: "LinkedIn",
-          href: "https://www.linkedin.com/",
-          external: true,
-        },
-        {
-          label: "Instagram",
-          href: "https://www.instagram.com/",
-          external: true,
-        },
+        { label: "X", href: xUrl, external: true },
+        { label: "Email", href: `mailto:${supportEmail}`, external: true },
       ],
     },
   ];
@@ -1038,9 +971,8 @@ function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const socialLinks = [
     { label: "GitHub", href: githubUrl, mark: "GH" },
-    { label: "X", href: "https://x.com/", mark: "X" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/", mark: "in" },
-    { label: "Instagram", href: "https://www.instagram.com/", mark: "IG" },
+    { label: "X", href: xUrl, mark: "X" },
+    { label: "Email", href: `mailto:${supportEmail}`, mark: "@" },
   ];
 
   function submitContact(event: FormEvent<HTMLFormElement>) {
@@ -1062,18 +994,13 @@ function ContactPage() {
           </h1>
           <p className="mt-6 max-w-xl text-sm leading-relaxed text-[#E1E0CC]/60 md:text-lg">
             Questions about asset cover, rewards, receipts, partnerships, or
-            onboarding are welcome.
+            product setup are welcome.
           </p>
           <div className="mt-8 grid gap-3 text-sm text-[#E1E0CC]/65">
             <a
               className="coverfi-nav-link w-fit"
-              href="mailto:garvit.university@gmail.com">
-              garvit.university@gmail.com
-            </a>
-            <a
-              className="coverfi-nav-link w-fit"
-              href="mailto:jainpallavi.delhi@gmail.com">
-              jainpallavi.delhi@gmail.com
+              href={`mailto:${supportEmail}`}>
+              {supportEmail}
             </a>
           </div>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -1185,7 +1112,6 @@ export default function App() {
       "philosophy",
       "what-we-do",
       "services",
-      "get-started",
       "footer",
     ];
     if (!landingSections.includes(routeName)) return;
@@ -1287,9 +1213,6 @@ export default function App() {
       </div>
       <div id="services" data-scroll-section>
         <ServicesSection />
-      </div>
-      <div id="get-started" data-scroll-section>
-        <GetStartedSection />
       </div>
       <div id="footer" data-scroll-section>
         <FooterSection />

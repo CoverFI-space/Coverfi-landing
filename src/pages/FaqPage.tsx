@@ -56,7 +56,7 @@ export default function FaqPage() {
       category: "Trust & Safety",
       question: "What should I verify before signing?",
       answer:
-        "Check the asset, amount, recipient, duration, trigger price, premium, network, and contract or wallet address shown in the wallet prompt.",
+        "Check the asset, amount, recipient, duration, entry price, premium, network, and contract or wallet address shown in the wallet prompt.",
     },
     {
       category: "Trust & Safety",
@@ -80,19 +80,19 @@ export default function FaqPage() {
       category: "Protection",
       question: "Where do protection premiums go?",
       answer:
-        "In the current contract model, premiums are collected by the premium vault and forwarded to the reserve vault, where they strengthen claim capacity.",
+        "In the current contract model, premiums are collected by the reserve vault, where they strengthen claim capacity.",
     },
     {
       category: "Protection",
       question: "What is a protection position?",
       answer:
-        "A protection position is a wallet-signed record with an asset, protected amount, duration, trigger price, premium, and expiry. It is evaluated by contract rules and oracle data.",
+        "A protection position is a wallet-signed record with an asset, protected amount, duration, oracle-captured entry price, premium, and expiry. It is evaluated by contract rules and oracle data.",
     },
     {
       category: "Protection",
-      question: "What is the trigger price?",
+      question: "What is the entry price?",
       answer:
-        "The trigger price is the price level used to decide whether a position may become claimable before expiry. If the verified price does not meet the trigger rules, the position may not qualify.",
+        "The entry price is the fresh oracle price captured when the position is created. If the verified price later falls below that entry price before expiry, the contract can calculate a capped eligible payout.",
     },
     {
       category: "Protection",
@@ -188,7 +188,7 @@ export default function FaqPage() {
       category: "AI",
       question: "What can AI help me draft?",
       answer:
-        "It can help prepare payment or protection drafts such as a recipient, amount, asset, duration, or trigger price. You still review the final app form before signing.",
+        "It can help prepare payment or protection drafts such as a recipient, amount, asset, or duration. You still review the live entry price, final app form, and wallet prompt before signing.",
     },
     {
       category: "AI",
@@ -211,12 +211,6 @@ export default function FaqPage() {
           <nav className="hidden items-center gap-9 text-[11px] font-bold uppercase tracking-[0.02em] text-[#06111e] md:flex">
             <a className="nav-underline" href="/">
               Home
-            </a>
-            <a className="nav-underline" href="/pricing">
-              Pricing
-            </a>
-            <a className="nav-underline" href="/get-started">
-              Get Started
             </a>
             <a className="nav-underline" href="/faqs">
               FAQ

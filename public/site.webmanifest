@@ -1,0 +1,18 @@
+{
+  "name": "CoverFi",
+  "short_name": "CoverFi",
+  "description": "Wallet-signed asset protection, username payments, structured receipts, and transparent reserve accounting on Stellar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
