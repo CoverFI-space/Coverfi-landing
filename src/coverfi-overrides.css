@@ -1,0 +1,2372 @@
+body.coverfi-theme .coverfi-hidden-logo {
+  display: inline-block !important;
+}
+
+body.coverfi-theme .coverfi-logo-img {
+  display: block;
+  object-fit: contain;
+}
+
+body.coverfi-theme .coverfi-fallback {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+html,
+body,
+#root {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  background-color: var(--yellow, #ffd84a) !important;
+}
+
+body.coverfi-theme,
+body.coverfi-theme .page-wrapper,
+body.coverfi-theme .main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  background-color: var(--yellow, #ffd84a) !important;
+}
+
+body.coverfi-theme .main {
+  position: relative !important;
+  z-index: 1 !important;
+  padding-bottom: clamp(8rem, 16vw, 16rem) !important;
+}
+
+body.coverfi-theme .main > section:last-child {
+  margin-bottom: clamp(3rem, 8vw, 8rem) !important;
+}
+
+body.coverfi-theme .footer {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body.coverfi-theme .footer__bottom-credit {
+  display: none !important;
+}
+
+body.coverfi-theme .header {
+  top: 0 !important;
+}
+
+body.coverfi-theme .hero.is--bg-yellow {
+  margin-top: -2px !important;
+  padding-top: 2px !important;
+  min-height: 100svh !important;
+  height: 100svh !important;
+  max-height: 100svh !important;
+  overflow: hidden !important;
+}
+
+body.coverfi-theme .hero__container,
+body.coverfi-theme .hero__inner {
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+body.coverfi-theme .hero__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body.coverfi-theme .hero__content {
+  z-index: 5 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: min(88vw, 44rem) !important;
+  margin: 0 auto !important;
+  align-items: center !important;
+  gap: clamp(1.15rem, 2.2vw, 1.6rem) !important;
+  text-align: center !important;
+  transform: translateY(clamp(-5.25rem, -8vh, -2.75rem)) !important;
+}
+
+body.coverfi-theme .hero__header,
+body.coverfi-theme .hero__title,
+body.coverfi-theme .hero__paragraph {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+}
+
+body.coverfi-theme .hero__title {
+  max-width: 8ch !important;
+  font-size: clamp(6rem, 14vw, 12.5rem) !important;
+  line-height: 0.82 !important;
+}
+
+body.coverfi-theme .hero__paragraph {
+  max-width: 36rem !important;
+  font-size: clamp(1.18rem, 2vw, 1.55rem) !important;
+  line-height: 1.18 !important;
+  font-weight: 900 !important;
+}
+
+body.coverfi-theme .coverfi-powered-by {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: fit-content;
+  margin: 0 auto clamp(0.85rem, 1.7vw, 1.25rem);
+  padding: 0.62rem 0.9rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--black, #080909);
+  font-size: clamp(0.82rem, 1.15vw, 1rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+body.coverfi-theme .coverfi-powered-by img {
+  display: block;
+  width: clamp(1.15rem, 1.8vw, 1.55rem);
+  height: clamp(1.15rem, 1.8vw, 1.55rem);
+  object-fit: contain;
+}
+
+body.coverfi-theme .hero__content .button-alt {
+  min-height: clamp(3.75rem, 5vw, 4.7rem) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  transform: scale(1.08);
+  transform-origin: center center;
+}
+
+body.coverfi-theme .hero__content .button-alt__text {
+  font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+}
+
+body.coverfi-theme .hero__content .button-alt__icon-wrap {
+  width: clamp(3.75rem, 5vw, 4.7rem) !important;
+  min-width: clamp(3.75rem, 5vw, 4.7rem) !important;
+  height: clamp(3.75rem, 5vw, 4.7rem) !important;
+}
+
+body.coverfi-theme .hero__content .button-alt__icon-outer {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.coverfi-theme .hero__content .button-alt__icon {
+  width: clamp(1.35rem, 2vw, 1.85rem) !important;
+  height: clamp(1.35rem, 2vw, 1.85rem) !important;
+}
+
+@media (min-width: 992px) {
+  body.coverfi-theme .hero.is--bg-yellow {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+  }
+
+  body.coverfi-theme .hero__visual {
+    transform: none !important;
+    transform-origin: right center;
+  }
+}
+
+body.coverfi-theme .hero__sequence,
+body.coverfi-theme [data-hero-sequence] {
+  display: none !important;
+}
+
+body.coverfi-theme .header__title-logo.coverfi-logo-img,
+body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
+  width: auto !important;
+  height: clamp(1.85rem, 3vw, 2.7rem) !important;
+  max-width: 11.5rem !important;
+  margin-top: 0 !important;
+}
+
+/* Post-hero logo placements paused for now.
+body.coverfi-theme .footer__logo-img.coverfi-logo-img {
+  width: auto !important;
+  height: clamp(2.5rem, 5vw, 4.625rem) !important;
+  max-width: 18.4375em !important;
+}
+
+body.coverfi-theme .flow__cta-logo.coverfi-logo-img {
+  width: 3.75rem !important;
+  height: 3.75rem !important;
+  border-radius: 999px;
+}
+
+body.coverfi-theme .benefits__logo.coverfi-logo-img {
+  width: auto !important;
+  height: min(27em, 48vw) !important;
+}
+
+body.coverfi-theme .benefits__logo-text.coverfi-logo-img {
+  width: auto !important;
+  height: min(7em, 18vw) !important;
+  object-fit: contain;
+}
+*/
+
+body.coverfi-theme .coverfi-transition-logo,
+body.coverfi-theme .coverfi-popup-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.coverfi-theme .transition__logo {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+body.coverfi-theme .transition__logo .coverfi-transition-logo {
+  width: clamp(3.8rem, 8.7vw, 6.9rem) !important;
+  height: clamp(3.8rem, 8.7vw, 6.9rem) !important;
+  max-width: 6.9rem !important;
+  max-height: 6.9rem !important;
+}
+
+body.coverfi-theme .coverfi-popup-logo {
+  width: 62% !important;
+  height: 62% !important;
+  padding: 0;
+  border-radius: 999px;
+}
+
+body.coverfi-theme .hero__logo-easter-egg .pop-up__button-inner {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+body.coverfi-theme .hero__logo-easter-egg .coverfi-popup-logo {
+  width: clamp(2.55rem, 4.6vw, 3.7rem) !important;
+  height: clamp(2.55rem, 4.6vw, 3.7rem) !important;
+  max-width: 3.7rem !important;
+  max-height: 3.7rem !important;
+}
+
+body.coverfi-theme .hero__visual-img.coverfi-logo-img {
+  width: clamp(7rem, 18vw, 12rem) !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  left: 0 !important;
+  object-fit: contain !important;
+}
+
+body.coverfi-theme .hero__visual-img.coverfi-device-visual {
+  position: relative !important;
+  z-index: 999 !important;
+  width: min(148vw, 116rem) !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+body.coverfi-theme .hero__visual:has(.coverfi-device-visual) {
+  position: relative !important;
+  z-index: 998 !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+}
+
+body.coverfi-theme .hero__bg,
+body.coverfi-theme [data-hero-sequence] {
+  z-index: 0 !important;
+}
+
+body.coverfi-theme .coverfi-device-stage {
+  display: none !important;
+}
+
+body.coverfi-theme .coverfi-device-stage::before {
+  display: none !important;
+}
+
+body.coverfi-theme .coverfi-device-plane {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(148vw, 116rem) !important;
+  max-width: 116rem !important;
+  height: auto !important;
+  transform: none !important;
+  rotate: 0deg !important;
+  transform-style: flat;
+  transform-origin: center center;
+  will-change: auto;
+  pointer-events: none !important;
+}
+
+body.coverfi-theme .flow__cta-logo,
+body.coverfi-theme .flow__cta-logo.coverfi-logo-img {
+  display: none !important;
+}
+
+body.coverfi-theme .flow {
+  padding-bottom: clamp(5rem, 9vw, 9rem) !important;
+}
+
+body.coverfi-theme .genre {
+  margin-top: clamp(2.5rem, 6vw, 6rem) !important;
+  padding-bottom: clamp(4rem, 8vw, 8rem) !important;
+}
+
+body.coverfi-theme .benefits__logo,
+body.coverfi-theme .benefits__logo.coverfi-logo-img {
+  width: auto !important;
+  height: clamp(8rem, 22vw, 15rem) !important;
+  max-width: min(42vw, 16rem) !important;
+  object-fit: contain !important;
+}
+
+body.coverfi-theme .benefits__logo-text,
+body.coverfi-theme .benefits__logo-text.coverfi-logo-img {
+  width: auto !important;
+  height: clamp(2.25rem, 6vw, 4rem) !important;
+  max-width: min(46vw, 16rem) !important;
+  margin-bottom: 0 !important;
+  object-fit: contain !important;
+}
+
+body.coverfi-theme .benefits__content {
+  display: none !important;
+}
+
+body.coverfi-theme .benefits,
+body.coverfi-theme .benefits__inner {
+  background-color: var(--yellow, #ffd84a) !important;
+}
+
+body.coverfi-theme .genre__title,
+body.coverfi-theme .coverfi-benefits-heading {
+  font-size: var(--font-size-heading-l) !important;
+  line-height: 0.9 !important;
+}
+
+body.coverfi-theme .genre__title {
+  margin-bottom: clamp(1.5rem, 4vw, 3.5rem) !important;
+}
+
+body.coverfi-theme .benefits {
+  padding-top: clamp(2.5rem, 6vw, 5.5rem) !important;
+  padding-bottom: clamp(4rem, 8vw, 8rem) !important;
+}
+
+body.coverfi-theme .coverfi-benefits-heading {
+  position: absolute;
+  z-index: 3;
+  top: clamp(2.5rem, 7vw, 6rem);
+  left: 50%;
+  max-width: min(88vw, 12ch);
+  margin: 0;
+  color: var(--black, #080909);
+  font-family: Champ, Arial, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+body.coverfi-theme .benefits__bg.coverfi-benefits-hero-bg {
+  inset: 0 !important;
+  color: var(--pale-yellow) !important;
+  overflow: hidden;
+}
+
+body.coverfi-theme .coverfi-benefits-hero-bg-svg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+body.coverfi-theme .gift,
+body.coverfi-theme .tagline-curve,
+body.coverfi-theme .tagline-curve__wrap {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
+body.coverfi-theme .tagline-curve {
+  display: none !important;
+}
+
+body.coverfi-theme .tagline-curve__wrap {
+  transform: translateY(0);
+}
+
+body.coverfi-theme .tagline-curve__svg {
+  display: block;
+  max-width: 100vw;
+}
+
+body.coverfi-theme .faq {
+  position: relative !important;
+  z-index: 2 !important;
+  padding-bottom: clamp(3rem, 7vw, 6rem) !important;
+  overflow: clip !important;
+  isolation: isolate;
+}
+
+@supports not (overflow: clip) {
+  body.coverfi-theme .faq {
+    overflow: hidden !important;
+  }
+}
+
+body.coverfi-theme .faq + section {
+  position: relative !important;
+  z-index: 3 !important;
+  margin-top: 0 !important;
+}
+
+body.coverfi-theme .genre__img.coverfi-reward-hover-img {
+  padding: 0.35em;
+  border-radius: 0.65em;
+  background: #ffffff;
+  object-fit: contain;
+  object-position: center;
+}
+
+body.coverfi-theme .footer__logo-img,
+body.coverfi-theme .footer__logo-img.coverfi-logo-img {
+  width: auto !important;
+  height: clamp(1.75rem, 4vw, 3rem) !important;
+  max-width: min(42vw, 10rem) !important;
+  object-fit: contain !important;
+}
+
+body.coverfi-theme :is(.faq__logo-easter-egg, .box__logo-easter-egg, .choice__easter-egg, .genre__easter-egg) .pop-up__button {
+  transform: scale(0.72) !important;
+  transform-origin: center !important;
+}
+
+body.coverfi-theme :is(.faq__logo-easter-egg, .box__logo-easter-egg, .choice__easter-egg, .genre__easter-egg) .coverfi-popup-logo {
+  width: clamp(1.75rem, 3.5vw, 2.55rem) !important;
+  height: clamp(1.75rem, 3.5vw, 2.55rem) !important;
+}
+
+body.coverfi-theme .faq__logo-easter-egg .pop-up__button {
+  transform: scale(0.86) !important;
+}
+
+body.coverfi-theme .faq__logo-easter-egg .coverfi-popup-logo {
+  width: clamp(2rem, 4.2vw, 3rem) !important;
+  height: clamp(2rem, 4.2vw, 3rem) !important;
+}
+
+body.coverfi-theme .coverfi-paused-box-logo,
+body.coverfi-theme .coverfi-hidden-box-action,
+body.coverfi-theme .coverfi-hidden-box-intro-text,
+body.coverfi-theme .coverfi-hidden-branding,
+body.coverfi-theme .coverfi-hidden-footer-logo,
+body.coverfi-theme .badge,
+body.coverfi-theme .footer__logo,
+body.coverfi-theme .gift__content-bottom,
+body.coverfi-theme .gift__content-box-wrap,
+body.coverfi-theme .gift__content-handwritten-wrap,
+body.coverfi-theme .gift__content-box,
+body.coverfi-theme .gift__content-box-img,
+body.coverfi-theme .box__logo-easter-egg,
+body.coverfi-theme .genre__easter-egg,
+body.coverfi-theme .choice__easter-egg,
+body.coverfi-theme .faq__logo-easter-egg,
+body.coverfi-theme .hero-xs__easter-egg,
+body.coverfi-theme .main section:not(.hero) [class*="logo-easter-egg"],
+body.coverfi-theme .main section:not(.hero) [class*="easter-egg"],
+body.coverfi-theme img[alt="logo-pw"],
+body.coverfi-theme img[alt="logo-msnbc"],
+body.coverfi-theme img[alt="logo-book-riot"],
+body.coverfi-theme img[alt="logo-travel-leisure"] {
+  display: none !important;
+}
+
+body.coverfi-theme .box__content-text {
+  max-width: 18ch;
+  white-space: normal;
+  line-height: 1.08 !important;
+  text-align: center;
+}
+
+body.coverfi-theme .box__content-text br {
+  display: block;
+  content: "";
+  margin-top: 0.12em;
+}
+
+@media (max-width: 991px) {
+  body.coverfi-theme .header__title-logo.coverfi-logo-img,
+  body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
+    height: 2rem !important;
+  }
+
+  body.coverfi-theme .benefits__logo,
+  body.coverfi-theme .benefits__logo.coverfi-logo-img {
+    height: 9rem !important;
+    max-width: 12rem !important;
+  }
+
+  body.coverfi-theme .benefits__logo-text,
+  body.coverfi-theme .benefits__logo-text.coverfi-logo-img {
+    height: 2.75rem !important;
+    max-width: 12rem !important;
+  }
+
+  /* Post-hero logo placements paused for now.
+  body.coverfi-theme .benefits__logo.coverfi-logo-img {
+    height: 13.3125em !important;
+  }
+
+  body.coverfi-theme .benefits__logo-text.coverfi-logo-img {
+    height: 4.5em !important;
+  }
+  */
+}
+
+@media (max-width: 767px) {
+  body.coverfi-theme .header__title-logo.coverfi-logo-img,
+  body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
+    height: 1.75rem !important;
+  }
+
+  body.coverfi-theme .benefits__logo,
+  body.coverfi-theme .benefits__logo.coverfi-logo-img {
+    height: 6.5rem !important;
+    max-width: 9rem !important;
+  }
+
+  body.coverfi-theme .benefits__logo-text,
+  body.coverfi-theme .benefits__logo-text.coverfi-logo-img {
+    height: 2rem !important;
+    max-width: 9rem !important;
+  }
+
+  body.coverfi-theme .coverfi-benefits-heading {
+    top: 2.75rem;
+  }
+
+}
+
+body.coverfi-theme .coverfi-hero-copy {
+  max-width: 46rem;
+  margin: 1rem auto 0;
+  color: inherit;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.45;
+  text-align: center;
+}
+
+body.coverfi-theme .coverfi-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.25rem;
+  margin: 1rem auto 0;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.coverfi-theme .coverfi-hero-note-hidden,
+body.coverfi-theme .coverfi-hero-copy,
+body.coverfi-theme .coverfi-hero-badge {
+  display: none !important;
+}
+
+body.coverfi-theme .coverfi-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  margin: clamp(1.5rem, 4vw, 3.5rem) 0;
+}
+
+body.coverfi-theme .coverfi-intro-card {
+  min-height: 15rem;
+  padding: clamp(1rem, 2.6vw, 2rem);
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  color: inherit;
+}
+
+body.coverfi-theme .coverfi-intro-card__media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-radius: 0.45rem;
+  background: #fff6a8;
+}
+
+body.coverfi-theme .coverfi-intro-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.coverfi-theme .books-slider__item-img.coverfi-feature-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  background: #fff6a8;
+}
+
+body.coverfi-theme .books-slider__item-cover:has(.coverfi-feature-card-img) {
+  background: #fff6a8;
+  overflow: hidden !important;
+}
+
+body.coverfi-theme .coverfi-intro-card span {
+  display: block;
+  margin-bottom: 1rem;
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.coverfi-theme .coverfi-intro-card h3 {
+  margin: 0 0 0.75rem;
+  color: inherit;
+  font-size: clamp(1.8rem, 4vw, 3.15rem);
+  line-height: 0.96;
+}
+
+body.coverfi-theme .coverfi-intro-card p {
+  margin: 0;
+  color: inherit;
+  line-height: 1.5;
+}
+
+body.coverfi-theme .subscription__box-price {
+  max-width: 18rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem) !important;
+  line-height: 1.35 !important;
+}
+
+body.coverfi-theme .coverfi-text-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  min-width: 10rem;
+  min-height: 3.2rem;
+  padding: 0.8rem 1.15rem !important;
+  border: 2px solid var(--black, #080909) !important;
+  border-radius: 999px;
+  background: #ffffff !important;
+  color: var(--black, #080909) !important;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+body.coverfi-theme .coverfi-text-button span {
+  color: inherit !important;
+  white-space: nowrap;
+}
+
+body.coverfi-theme .coverfi-social-icon .button-social__icon-outer {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 100% !important;
+  color: currentColor !important;
+}
+
+body.coverfi-theme .coverfi-social-icon .button-social__icon-outer img,
+body.coverfi-theme .coverfi-social-icon .button-social__icon-outer > svg:not(.coverfi-social-svg) {
+  display: none !important;
+}
+
+body.coverfi-theme .coverfi-social-svg {
+  display: block !important;
+  width: 54% !important;
+  height: 54% !important;
+  color: currentColor !important;
+}
+
+body.coverfi-theme .coverfi-footer-link-grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 1rem !important;
+}
+
+body.coverfi-theme .coverfi-footer-link {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+body.coverfi-theme .coverfi-footer-link:hover {
+  text-decoration: underline !important;
+}
+
+body.coverfi-theme .gift__visual.coverfi-asset-preview-card {
+  width: min(42vw, 34rem) !important;
+  max-width: 34rem !important;
+  aspect-ratio: 4 / 3 !important;
+  padding: clamp(0.65rem, 1.25vw, 1rem) !important;
+  overflow: hidden !important;
+  border: 2px solid var(--black, #080909) !important;
+  border-radius: 0.75rem !important;
+  background: #fff9bf !important;
+  box-shadow: 0 1rem 0 rgba(8, 9, 9, 0.14) !important;
+  transform: none !important;
+  rotate: 0deg !important;
+}
+
+body.coverfi-theme .gift__visual.coverfi-asset-preview-card .coverfi-package-replacement-img {
+  display: block;
+  width: 100%;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0.45rem;
+  transform: none !important;
+  rotate: 0deg !important;
+}
+
+body.coverfi-theme .exclusive-slider .books-slider__review-number {
+  font-size: clamp(0.9rem, 1.7vw, 1.35rem) !important;
+  line-height: 0.9 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+}
+
+body.coverfi-theme .coverfi-hidden-testimonial-source {
+  display: none !important;
+}
+
+body.coverfi-theme .coverfi-testimonials-marquee {
+  position: relative;
+  display: grid;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+  width: 100%;
+  padding: clamp(1rem, 3vw, 2rem) 0 clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+}
+
+body.coverfi-theme .coverfi-testimonials-marquee::before,
+body.coverfi-theme .coverfi-testimonials-marquee::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: min(12vw, 10rem);
+  pointer-events: none;
+}
+
+body.coverfi-theme .coverfi-testimonials-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--yellow, #ffd84a), rgba(255, 216, 74, 0));
+}
+
+body.coverfi-theme .coverfi-testimonials-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--yellow, #ffd84a), rgba(255, 216, 74, 0));
+}
+
+body.coverfi-theme .coverfi-testimonials-row {
+  width: 100%;
+  overflow: hidden;
+}
+
+body.coverfi-theme .coverfi-testimonials-track {
+  display: flex;
+  width: max-content;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  will-change: transform;
+}
+
+body.coverfi-theme .coverfi-testimonials-row.is-right .coverfi-testimonials-track {
+  animation: coverfiPraiseRight 42s linear infinite;
+}
+
+body.coverfi-theme .coverfi-testimonials-row.is-left .coverfi-testimonials-track {
+  animation: coverfiPraiseLeft 42s linear infinite;
+}
+
+body.coverfi-theme .coverfi-testimonials-row:hover .coverfi-testimonials-track {
+  animation-play-state: paused;
+}
+
+body.coverfi-theme .coverfi-praise-card {
+  display: flex;
+  flex: 0 0 clamp(18rem, 28vw, 24.5rem);
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(13rem, 20vw, 16.5rem);
+  padding: clamp(1.35rem, 2.4vw, 2rem);
+  border: 1px solid rgba(8, 9, 9, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 1rem 2.5rem rgba(8, 9, 9, 0.08);
+  color: var(--black, #080909);
+}
+
+body.coverfi-theme .coverfi-praise-card__mark {
+  display: block;
+  height: 1.5rem;
+  color: #5368ff;
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.75;
+}
+
+body.coverfi-theme .coverfi-praise-card__quote {
+  margin: clamp(1.2rem, 2vw, 1.6rem) 0 clamp(1.4rem, 2.6vw, 2rem);
+  color: inherit;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.28;
+}
+
+body.coverfi-theme .coverfi-praise-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+body.coverfi-theme .coverfi-praise-card__logo {
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 2.65rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(8, 9, 9, 0.1);
+  border-radius: 50%;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+body.coverfi-theme .coverfi-praise-card__person {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+body.coverfi-theme .coverfi-praise-card__person strong {
+  color: inherit;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+body.coverfi-theme .coverfi-praise-card__person span {
+  color: rgba(8, 9, 9, 0.52);
+  font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+@keyframes coverfiPraiseLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-50% - clamp(0.5rem, 1vw, 0.675rem)), 0, 0);
+  }
+}
+
+@keyframes coverfiPraiseRight {
+  from {
+    transform: translate3d(calc(-50% - clamp(0.5rem, 1vw, 0.675rem)), 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.filter.is--faq > .filter__inner:not(.coverfi-faq-sidebar),
+body.coverfi-faq-page .filter.is--faq > .coverfi-source-faq-sidebar {
+  display: none !important;
+}
+
+.filter.is--faq > .coverfi-faq-sidebar,
+body.coverfi-faq-page .coverfi-faq-sidebar {
+  display: block !important;
+}
+
+body.coverfi-faq-page .accordion__details .accordion__content {
+  display: block !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  transition: max-height 0.32s ease, opacity 0.22s ease !important;
+}
+
+body.coverfi-faq-page .accordion__details[open] .accordion__content {
+  height: auto !important;
+  max-height: 40rem !important;
+  opacity: 1 !important;
+}
+
+body.coverfi-faq-page .accordion__details[open] .accordion__content-inner,
+body.coverfi-faq-page .accordion__details[open] .rich-text,
+body.coverfi-faq-page .accordion__details[open] .rich-text p {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.coverfi-info-page,
+body.coverfi-info-page .page-wrapper,
+body.coverfi-info-page .main {
+  background-color: var(--yellow, #ffd84a) !important;
+}
+
+body.coverfi-info-page .main {
+  min-height: 100svh;
+}
+
+body.coverfi-info-page .coverfi-info-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  min-height: 82svh;
+  padding: clamp(7rem, 12vw, 10rem) clamp(1rem, 6vw, 7rem) clamp(3rem, 7vw, 6rem);
+  overflow: hidden;
+  color: var(--black, #080909);
+}
+
+body.coverfi-info-page .coverfi-info-hero::before,
+body.coverfi-info-page .coverfi-info-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+body.coverfi-info-page .coverfi-info-hero::before {
+  inset: 7% -14% auto auto;
+  width: min(46vw, 42rem);
+  aspect-ratio: 1;
+  background: var(--pale-yellow, #fff49a);
+  animation: coverfiFloat 9s ease-in-out infinite;
+}
+
+body.coverfi-info-page .coverfi-info-hero::after {
+  left: -11%;
+  bottom: -18%;
+  width: min(48vw, 40rem);
+  aspect-ratio: 1;
+  background: #ff9f1c;
+  animation: coverfiFloat 11s ease-in-out infinite reverse;
+}
+
+body.coverfi-info-page .coverfi-info-hero__copy,
+body.coverfi-info-page .coverfi-flow-visual,
+body.coverfi-info-page .coverfi-contact-form {
+  position: relative;
+  z-index: 1;
+}
+
+body.coverfi-info-page .coverfi-info-kicker {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+body.coverfi-info-page .coverfi-info-hero h1 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  line-height: 0.84;
+  letter-spacing: 0;
+}
+
+body.coverfi-info-page .coverfi-info-hero p {
+  max-width: 42rem;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+body.coverfi-info-page .coverfi-flow-visual,
+body.coverfi-info-page .coverfi-flow-visual {
+  align-self: center;
+  min-height: 31rem;
+}
+
+body.coverfi-info-page .coverfi-flow-visual {
+  display: grid;
+  place-items: center;
+}
+
+body.coverfi-info-page .coverfi-flow-ring {
+  position: absolute;
+  width: min(29rem, 80vw);
+  aspect-ratio: 1;
+  border: 1.1rem solid var(--black, #080909);
+  border-left-color: transparent;
+  border-radius: 50%;
+  animation: coverfiSpin 16s linear infinite;
+}
+
+body.coverfi-info-page .coverfi-flow-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: clamp(8rem, 13vw, 11rem);
+  min-height: 4.6rem;
+  padding: 1rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.5rem;
+  background: #fff6a8;
+  font-weight: 900;
+  text-align: center;
+  box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.12);
+}
+
+body.coverfi-info-page .coverfi-flow-node.is-one { top: 8%; left: 12%; animation: coverfiNode 5.5s ease-in-out infinite; }
+body.coverfi-info-page .coverfi-flow-node.is-two { top: 30%; right: 3%; animation: coverfiNode 5.5s ease-in-out 0.5s infinite; }
+body.coverfi-info-page .coverfi-flow-node.is-three { bottom: 19%; left: 0; animation: coverfiNode 5.5s ease-in-out 1s infinite; }
+body.coverfi-info-page .coverfi-flow-node.is-four { bottom: 4%; right: 18%; animation: coverfiNode 5.5s ease-in-out 1.5s infinite; }
+
+body.coverfi-info-page .coverfi-paper-layout,
+body.coverfi-info-page .coverfi-status-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 6vw, 7rem);
+}
+
+body.coverfi-info-page .coverfi-paper-layout {
+  grid-template-columns: minmax(12rem, 0.28fr) minmax(0, 1fr);
+  background: #fff9bf;
+}
+
+body.coverfi-info-page .coverfi-paper-nav {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  display: grid;
+  gap: 0.5rem;
+  max-height: calc(100svh - 8rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.35rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body.coverfi-info-page .coverfi-paper-nav::-webkit-scrollbar {
+  display: none;
+}
+
+body.coverfi-info-page .coverfi-paper-nav a {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+body.coverfi-info-page .coverfi-paper-sections {
+  display: grid;
+  gap: 1rem;
+}
+
+body.coverfi-info-page .coverfi-paper-card,
+body.coverfi-info-page .coverfi-status-card,
+body.coverfi-info-page .coverfi-contact-form {
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.5rem;
+  background: #fffdf0;
+  box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.12);
+}
+
+body.coverfi-info-page .coverfi-paper-card {
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+}
+
+body.coverfi-info-page .coverfi-paper-card span,
+body.coverfi-info-page .coverfi-status-card small {
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.coverfi-info-page .coverfi-paper-card h2 {
+  margin: 0.6rem 0 1rem;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(2.1rem, 5vw, 4.4rem);
+  line-height: 0.9;
+}
+
+body.coverfi-info-page .coverfi-paper-card p,
+body.coverfi-info-page .coverfi-status-card p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+body.coverfi-info-page .coverfi-status-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #fff9bf;
+}
+
+body.coverfi-info-page .coverfi-status-card {
+  display: grid;
+  gap: 1rem;
+  min-height: 15rem;
+  padding: 1.4rem;
+}
+
+body.coverfi-info-page .coverfi-status-card div {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+body.coverfi-info-page .coverfi-status-dot {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: #0bc46b;
+  box-shadow: 0 0 0 0 rgba(11, 196, 107, 0.55);
+  animation: coverfiPulse 1.8s ease-out infinite;
+}
+
+body.coverfi-info-page .coverfi-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+body.coverfi-info-page .coverfi-contact-links a {
+  display: inline-flex;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  color: inherit;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+body.coverfi-info-page .coverfi-contact-form {
+  display: grid;
+  gap: 1rem;
+  align-self: center;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  animation: coverfiFormFloat 6s ease-in-out infinite;
+}
+
+body.coverfi-info-page .coverfi-contact-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 900;
+}
+
+body.coverfi-info-page .coverfi-contact-form input,
+body.coverfi-info-page .coverfi-contact-form select,
+body.coverfi-info-page .coverfi-contact-form textarea {
+  width: 100%;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: #fff9bf;
+  padding: 0.9rem 1rem;
+  color: var(--black, #080909);
+  font: inherit;
+  font-weight: 700;
+}
+
+body.coverfi-info-page .coverfi-select-wrap {
+  position: relative;
+  display: block;
+}
+
+body.coverfi-info-page .coverfi-select-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-right: 2px solid var(--black, #080909);
+  border-bottom: 2px solid var(--black, #080909);
+  pointer-events: none;
+  transform: translateY(-65%) rotate(45deg);
+}
+
+body.coverfi-info-page .coverfi-contact-form select {
+  min-height: 3.3rem;
+  appearance: none;
+  padding-right: 3rem;
+  background-color: #fff6a8;
+  cursor: pointer;
+}
+
+body.coverfi-info-page .coverfi-contact-form input:focus,
+body.coverfi-info-page .coverfi-contact-form select:focus,
+body.coverfi-info-page .coverfi-contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.22rem rgba(255, 0, 144, 0.22);
+}
+
+body.coverfi-info-page .coverfi-contact-form button {
+  border: 0;
+  border-radius: 999px;
+  background: #ff0090;
+  padding: 1rem;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+body.coverfi-info-page .coverfi-contact-result {
+  margin: 0;
+  min-height: 1.4rem;
+  font-size: 0.9rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-info-hero,
+body.coverfi-info-status .coverfi-info-hero {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: auto;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+body.coverfi-info-whitepaper .coverfi-info-hero::before,
+body.coverfi-info-whitepaper .coverfi-info-hero::after,
+body.coverfi-info-status .coverfi-info-hero::before,
+body.coverfi-info-status .coverfi-info-hero::after {
+  display: none !important;
+  animation: none !important;
+}
+
+body.coverfi-info-whitepaper .coverfi-info-hero h1,
+body.coverfi-info-status .coverfi-info-hero h1 {
+  max-width: 11ch;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-layout {
+  grid-template-columns: minmax(12rem, 0.24fr) minmax(0, 1fr) minmax(18rem, 0.34fr);
+  align-items: start;
+  padding-bottom: clamp(10rem, 16vw, 16rem);
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-nav a {
+  opacity: 0.58;
+  transition: opacity 0.22s ease, transform 0.22s ease, border-color 0.22s ease;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-nav a.is-active {
+  border-bottom-color: var(--black, #080909);
+  opacity: 1;
+  transform: translateX(0.35rem);
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-card {
+  scroll-margin-top: 7rem;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-card.is-active {
+  background: #fff6a8;
+  box-shadow: 0 1.15rem 0 rgba(0, 0, 0, 0.18);
+  transform: translateY(-0.12rem);
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-body {
+  display: grid;
+  gap: 0.9rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-formula {
+  margin: 1.2rem 0 0;
+  overflow-x: auto;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: var(--black, #080909);
+  padding: 1rem;
+  color: #fff9bf;
+  font: 800 0.86rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-bullets {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+body.coverfi-info-whitepaper .coverfi-contract-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-contract-grid div,
+body.coverfi-info-whitepaper .coverfi-reference-list a {
+  display: grid;
+  gap: 0.35rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: #ffffff;
+  padding: 0.8rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+body.coverfi-info-whitepaper .coverfi-contract-grid code {
+  overflow-wrap: anywhere;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+body.coverfi-info-whitepaper .coverfi-reference-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-sections .coverfi-paper-card:last-child {
+  margin-bottom: clamp(7rem, 12vw, 12rem);
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-sticky-visual {
+  position: sticky;
+  top: 6rem;
+  min-height: 29rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.5rem;
+  background: #ff9f1c;
+  box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.12);
+  padding: clamp(1rem, 2vw, 1.35rem);
+  overflow: hidden;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-illustration {
+  display: none;
+  min-height: 24rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-illustration.is-active {
+  display: block;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-illustration > span {
+  font-size: 0.76rem;
+  font-weight: 1000;
+  letter-spacing: 0.16em;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-illustration h3 {
+  margin: 0.4rem 0 0;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: 0.9;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-illustration > p {
+  margin: 1rem 0 0;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: #fff6a8;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-flow {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-flow-node {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3.1rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: #fffdf0;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 1000;
+  line-height: 1.2;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-flow-node small {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  background: #ff0090;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 1000;
+}
+
+body.coverfi-info-whitepaper .coverfi-paper-sticky-visual > p {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+body.coverfi-info-status .coverfi-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+body.coverfi-info-status .coverfi-status-actions a,
+body.coverfi-info-page .coverfi-status-summary,
+body.coverfi-info-page .coverfi-status-components span,
+body.coverfi-info-page .coverfi-status-meta a {
+  border: 2px solid var(--black, #080909);
+  color: inherit;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+body.coverfi-info-status .coverfi-status-actions a {
+  border-radius: 999px;
+  background: #fff6a8;
+  padding: 0.82rem 1.1rem;
+}
+
+body.coverfi-info-page .coverfi-status-summary {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0 clamp(1rem, 6vw, 7rem);
+  border-radius: 0.5rem;
+  background: #fff9bf;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.12);
+}
+
+body.coverfi-info-page .coverfi-status-summary div {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+}
+
+body.coverfi-info-page .coverfi-status-summary p {
+  margin: 0;
+  font-weight: 800;
+}
+
+body.coverfi-info-page .coverfi-status-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.coverfi-info-page .coverfi-status-card {
+  gap: 1.05rem;
+  animation: coverfiCardRise 0.6s ease both;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-card__head,
+body.coverfi-info-page .coverfi-status-card .coverfi-status-card__head > div,
+body.coverfi-info-page .coverfi-status-card .coverfi-status-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-card__head {
+  justify-content: space-between;
+}
+
+body.coverfi-info-page .coverfi-status-service-icon {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.45rem;
+  background: #0bc46b;
+  font-size: 0.78rem;
+  font-weight: 1000;
+}
+
+body.coverfi-info-page .coverfi-status-pill {
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  background: #fff6a8;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-bars {
+  display: grid;
+  grid-template-columns: repeat(36, minmax(0, 1fr));
+  gap: 3px;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-bars span {
+  height: 1.45rem;
+  border-radius: 2px;
+  background: #0bc46b;
+  animation: coverfiStatusBar 2.4s ease-in-out infinite;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-components {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+body.coverfi-info-page .coverfi-status-components span {
+  border-radius: 999px;
+  background: #fff6a8;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.72rem;
+}
+
+body.coverfi-info-page .coverfi-status-card .coverfi-status-meta {
+  justify-content: space-between;
+  align-items: flex-end;
+  color: rgba(8, 9, 9, 0.78);
+}
+
+body.coverfi-info-page .coverfi-status-meta small {
+  max-width: 34rem;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+body.coverfi-info-page .coverfi-status-meta a {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #ff0090;
+  padding: 0.65rem 0.85rem;
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+body.coverfi-info-page .coverfi-contact-links {
+  align-items: center;
+}
+
+body.coverfi-info-page .coverfi-contact-social {
+  display: inline-grid;
+  place-items: center;
+  width: 3.15rem;
+  height: 3.15rem;
+  padding: 0;
+  background: var(--black, #080909);
+  color: #ffffff;
+}
+
+body.coverfi-info-page .coverfi-contact-social-svg {
+  display: block;
+  width: 54%;
+  height: 54%;
+  color: currentColor;
+}
+
+@keyframes coverfiSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes coverfiFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2rem, -1.5rem, 0) scale(1.06); }
+}
+
+@keyframes coverfiNode {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-1rem) rotate(2deg); }
+}
+
+@keyframes coverfiPulse {
+  70% { box-shadow: 0 0 0 0.8rem rgba(11, 196, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(11, 196, 107, 0); }
+}
+
+@keyframes coverfiFormFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-0.8rem) rotate(0.8deg); }
+}
+
+@keyframes coverfiCardRise {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes coverfiStatusBar {
+  0%, 100% { opacity: 0.58; transform: scaleY(0.82); }
+  45% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 991px) {
+  body.coverfi-theme .coverfi-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.coverfi-theme .coverfi-intro-card {
+    min-height: auto;
+  }
+
+  body.coverfi-info-page .coverfi-info-hero,
+  body.coverfi-info-page .coverfi-paper-layout,
+  body.coverfi-info-page .coverfi-status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.coverfi-info-page .coverfi-paper-nav {
+    position: static;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-sticky-visual {
+    position: static;
+    order: -1;
+  }
+
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-card__head,
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 767px) {
+  body.coverfi-theme .coverfi-hero-copy {
+    max-width: 22rem;
+    font-size: 1rem;
+  }
+
+  body.coverfi-theme .coverfi-text-button {
+    min-width: 9rem;
+    min-height: 2.8rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html,
+  body,
+  #root,
+  body.coverfi-theme,
+  body.coverfi-theme .page-wrapper,
+  body.coverfi-theme .main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  body.coverfi-theme *,
+  body.coverfi-theme *::before,
+  body.coverfi-theme *::after {
+    box-sizing: border-box;
+  }
+
+  body.coverfi-theme img,
+  body.coverfi-theme video,
+  body.coverfi-theme canvas,
+  body.coverfi-theme svg {
+    max-width: 100%;
+  }
+
+  body.coverfi-theme .header {
+    width: 100%;
+    padding: 0.5rem 0.55rem !important;
+  }
+
+  body.coverfi-theme .header__inner {
+    min-height: 3.35rem !important;
+    padding: 0.35rem 0.45rem !important;
+    gap: 0.6rem !important;
+  }
+
+  body.coverfi-theme .header__title {
+    min-width: 0 !important;
+  }
+
+  body.coverfi-theme .header__title-logo.coverfi-logo-img,
+  body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
+    height: 2.25rem !important;
+    max-width: 8.5rem !important;
+  }
+
+  body.coverfi-theme .header__nav {
+    display: none !important;
+  }
+
+  body.coverfi-theme .header__sub {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    gap: 0.45rem !important;
+  }
+
+  body.coverfi-theme .header__sub-list {
+    gap: 0.35rem !important;
+  }
+
+  body.coverfi-theme .header__menu-toggle {
+    display: flex !important;
+    width: 2.85rem !important;
+    height: 2.85rem !important;
+    min-width: 2.85rem !important;
+  }
+
+  body.coverfi-theme .header__menu-toggle .button-alt__text-wrap,
+  body.coverfi-theme .menu__close .button-alt__text-wrap {
+    display: none !important;
+  }
+
+  body.coverfi-theme .header__menu-toggle .button-alt__icon-wrap,
+  body.coverfi-theme .menu__close .button-alt__icon-wrap {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+  }
+
+  body.coverfi-theme .header__sub-list-item:first-child,
+  body.coverfi-theme .menu__sub-list > :first-child {
+    display: none !important;
+  }
+
+  body.coverfi-theme .button-social {
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+    min-width: 2.75rem !important;
+  }
+
+  body.coverfi-theme .menu__inner,
+  body.coverfi-theme .menu__container,
+  body.coverfi-theme .menu__content {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  body.coverfi-theme .menu__nav-list {
+    display: grid !important;
+    gap: 0.65rem !important;
+  }
+
+  body.coverfi-theme .menu__nav-list-item .button,
+  body.coverfi-theme .menu__login .button-alt {
+    width: 100% !important;
+  }
+
+  body.coverfi-theme .hero.is--bg-yellow {
+    min-height: 100svh !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 5.5rem 1rem 3.5rem !important;
+  }
+
+  body.coverfi-theme .hero__container,
+  body.coverfi-theme .hero__inner {
+    min-height: calc(100svh - 9rem) !important;
+    height: auto !important;
+  }
+
+  body.coverfi-theme .hero__content {
+    width: min(100%, 34rem) !important;
+    max-width: 34rem !important;
+    gap: 1rem !important;
+    transform: translateY(-1.4rem) !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by {
+    margin-bottom: 0.35rem !important;
+    padding: 0.52rem 0.72rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by img {
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+  }
+
+  body.coverfi-theme .hero__title {
+    max-width: 8ch !important;
+    font-size: 5rem !important;
+    line-height: 0.84 !important;
+    overflow-wrap: normal !important;
+  }
+
+  body.coverfi-theme .hero__paragraph {
+    max-width: 27rem !important;
+    font-size: 1.08rem !important;
+    line-height: 1.22 !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt {
+    min-height: 3.35rem !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt__text-wrap {
+    min-width: 0 !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt__text {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt__icon-wrap {
+    width: 3.35rem !important;
+    min-width: 3.35rem !important;
+    height: 3.35rem !important;
+  }
+
+  body.coverfi-theme .main {
+    padding-bottom: 6rem !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-grid {
+    width: 100% !important;
+    margin: 1.25rem 0 2rem !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 1rem !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card h3 {
+    font-size: 2.15rem !important;
+    line-height: 0.95 !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card p {
+    font-size: 0.98rem !important;
+    line-height: 1.42 !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card__media {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card__media img,
+  body.coverfi-theme .books-slider__item-img.coverfi-feature-card-img {
+    object-fit: cover !important;
+  }
+
+  body.coverfi-theme .flow,
+  body.coverfi-theme .genre,
+  body.coverfi-theme .benefits,
+  body.coverfi-theme .faq,
+  body.coverfi-theme .choice,
+  body.coverfi-theme .exclusive {
+    max-width: 100vw !important;
+    overflow-x: clip !important;
+  }
+
+  body.coverfi-theme .flow {
+    padding-top: 3rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  body.coverfi-theme .genre {
+    margin-top: 1.5rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  body.coverfi-theme .genre__title,
+  body.coverfi-theme .coverfi-benefits-heading {
+    font-size: 3.35rem !important;
+    line-height: 0.92 !important;
+  }
+
+  body.coverfi-theme .genre__img.coverfi-reward-hover-img {
+    max-height: 18rem !important;
+  }
+
+  body.coverfi-theme .benefits {
+    padding-top: 2.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+
+  body.coverfi-theme .benefits__inner {
+    min-height: auto !important;
+  }
+
+  body.coverfi-theme .coverfi-benefits-heading {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 auto 1.5rem !important;
+    transform: none !important;
+  }
+
+  body.coverfi-theme .benefits__label-wrap {
+    width: min(100%, 42rem) !important;
+    padding: 0 1rem 1rem !important;
+    gap: 0.75rem !important;
+  }
+
+  body.coverfi-theme .benefits__label {
+    max-width: 100% !important;
+  }
+
+  body.coverfi-theme .benefits__label-inner {
+    min-height: 3.35rem !important;
+    padding: 0.72rem 1rem !important;
+  }
+
+  body.coverfi-theme .benefits__label-text {
+    font-size: 2.15rem !important;
+    line-height: 0.98 !important;
+  }
+
+  body.coverfi-theme .gift__visual.coverfi-asset-preview-card {
+    width: min(100%, 30rem) !important;
+    max-width: calc(100vw - 2rem) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  body.coverfi-theme .coverfi-testimonials-marquee {
+    padding-top: 0.75rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  body.coverfi-theme .coverfi-testimonials-marquee::before,
+  body.coverfi-theme .coverfi-testimonials-marquee::after {
+    width: 2.5rem !important;
+  }
+
+  body.coverfi-theme .coverfi-testimonials-track {
+    gap: 0.85rem !important;
+  }
+
+  body.coverfi-theme .coverfi-praise-card {
+    flex-basis: min(82vw, 20rem) !important;
+    min-height: 12.5rem !important;
+    padding: 1.1rem !important;
+  }
+
+  body.coverfi-theme .coverfi-praise-card__quote {
+    margin: 0.9rem 0 1.2rem !important;
+    font-size: 0.98rem !important;
+    line-height: 1.28 !important;
+  }
+
+  body.coverfi-theme .faq {
+    padding-bottom: 3.5rem !important;
+    contain: layout paint;
+  }
+
+  body.coverfi-theme .faq__title {
+    font-size: 3.3rem !important;
+    line-height: 0.92 !important;
+  }
+
+  body.coverfi-theme .accordion__title {
+    font-size: 1.05rem !important;
+    line-height: 1.15 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.coverfi-theme .accordion__content,
+  body.coverfi-theme .accordion__content-inner,
+  body.coverfi-theme .accordion__content p {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.coverfi-theme .footer {
+    overflow-x: hidden !important;
+  }
+
+  body.coverfi-theme .footer__top-inner,
+  body.coverfi-theme .footer__top-nav,
+  body.coverfi-theme .footer__top-form,
+  body.coverfi-theme .footer__bottom-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.coverfi-theme .footer__cta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+  }
+
+  body.coverfi-theme .footer__cta .coverfi-text-button {
+    flex: 1 1 11rem !important;
+    min-width: 0 !important;
+  }
+
+  body.coverfi-theme .coverfi-footer-link-grid {
+    justify-content: flex-start !important;
+    gap: 0.65rem 0.9rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.coverfi-theme .header__title-logo.coverfi-logo-img,
+  body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
+    height: 2rem !important;
+    max-width: 7.5rem !important;
+  }
+
+  body.coverfi-theme .button-social {
+    width: 2.55rem !important;
+    height: 2.55rem !important;
+    min-width: 2.55rem !important;
+  }
+
+  body.coverfi-theme .header__menu-toggle {
+    width: 2.65rem !important;
+    height: 2.65rem !important;
+    min-width: 2.65rem !important;
+  }
+
+  body.coverfi-theme .hero.is--bg-yellow {
+    padding-top: 5.25rem !important;
+    padding-right: 0.9rem !important;
+    padding-left: 0.9rem !important;
+  }
+
+  body.coverfi-theme .hero__content {
+    transform: translateY(-0.85rem) !important;
+  }
+
+  body.coverfi-theme .hero__title {
+    font-size: 4.25rem !important;
+  }
+
+  body.coverfi-theme .hero__paragraph {
+    max-width: 21.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt {
+    width: min(100%, 18.5rem) !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt__text-wrap {
+    flex: 1 1 auto !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt__text {
+    font-size: 0.98rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by {
+    font-size: 0.74rem !important;
+  }
+
+  body.coverfi-theme .genre__title,
+  body.coverfi-theme .coverfi-benefits-heading,
+  body.coverfi-theme .faq__title {
+    font-size: 2.75rem !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card h3,
+  body.coverfi-theme .benefits__label-text {
+    font-size: 1.85rem !important;
+  }
+
+  body.coverfi-theme .coverfi-praise-card {
+    flex-basis: min(84vw, 18.5rem) !important;
+  }
+
+  body.coverfi-faq-page .filter.is--faq {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  body.coverfi-faq-page .coverfi-faq-sidebar {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+    padding: 0 1rem 0.75rem !important;
+    scrollbar-width: none;
+  }
+
+  body.coverfi-faq-page .coverfi-faq-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.coverfi-faq-page .coverfi-faq-sidebar a {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 991px) {
+  body.coverfi-info-page .coverfi-info-hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    padding: 6rem 1rem 3rem !important;
+    gap: 1.6rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-info-hero h1 {
+    max-width: 9ch !important;
+    font-size: 4.8rem !important;
+    line-height: 0.86 !important;
+  }
+
+  body.coverfi-info-page .coverfi-info-hero p {
+    max-width: 36rem !important;
+    margin-top: 1rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.35 !important;
+  }
+
+  body.coverfi-info-page .coverfi-flow-visual {
+    min-height: 23rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-flow-ring {
+    width: min(19rem, 76vw) !important;
+    border-width: 0.8rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-flow-node {
+    width: min(9rem, 42vw) !important;
+    min-height: 3.8rem !important;
+    padding: 0.75rem !important;
+    font-size: 0.86rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-layout,
+  body.coverfi-info-page .coverfi-status-grid {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1rem 5rem !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-nav {
+    position: sticky !important;
+    z-index: 7;
+    top: 4.35rem !important;
+    display: flex !important;
+    gap: 0.55rem !important;
+    max-height: none !important;
+    margin: -0.5rem -1rem 0 !important;
+    padding: 0.75rem 1rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    background: #fff9bf;
+    border-top: 2px solid rgba(8, 9, 9, 0.12);
+    border-bottom: 2px solid rgba(8, 9, 9, 0.12);
+    scrollbar-width: none;
+  }
+
+  body.coverfi-info-page .coverfi-paper-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.coverfi-info-page .coverfi-paper-nav a {
+    flex: 0 0 auto !important;
+    max-width: 15rem !important;
+    padding: 0.55rem 0.75rem !important;
+    border: 2px solid var(--black, #080909) !important;
+    border-radius: 999px !important;
+    background: #fffdf0 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-nav a.is-active {
+    transform: none !important;
+    background: #ff0090 !important;
+    color: #ffffff !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-sticky-visual {
+    position: static !important;
+    order: -1;
+    min-height: auto !important;
+    padding: 1rem !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-illustration {
+    min-height: auto !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-illustration h3 {
+    font-size: 2.35rem !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-illustration > p,
+  body.coverfi-info-whitepaper .coverfi-paper-sticky-visual > p {
+    font-size: 0.9rem !important;
+  }
+
+  body.coverfi-info-whitepaper .coverfi-paper-flow-node {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    font-size: 0.82rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-card {
+    padding: 1rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-card h2 {
+    font-size: 2.45rem !important;
+    line-height: 0.95 !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-card p,
+  body.coverfi-info-page .coverfi-status-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.45 !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-formula {
+    font-size: 0.76rem !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.coverfi-info-page .coverfi-status-summary {
+    margin: 0 1rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-status-card {
+    min-height: auto !important;
+    padding: 1rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-card__head,
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-meta {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-bars {
+    grid-template-columns: repeat(18, minmax(0, 1fr)) !important;
+  }
+
+  body.coverfi-info-page .coverfi-contact-form {
+    width: 100% !important;
+    max-width: 36rem !important;
+    animation: none !important;
+  }
+
+  body.coverfi-info-page .coverfi-contact-links {
+    gap: 0.6rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-contact-links a:not(.coverfi-contact-social) {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.coverfi-theme .header {
+    padding-right: 0.35rem !important;
+    padding-left: 0.35rem !important;
+  }
+
+  body.coverfi-theme .hero__title {
+    font-size: 3.65rem !important;
+  }
+
+  body.coverfi-theme .hero__paragraph {
+    font-size: 0.95rem !important;
+  }
+
+  body.coverfi-theme .hero__content .button-alt {
+    width: min(100%, 16.5rem) !important;
+  }
+
+  body.coverfi-theme .coverfi-intro-card h3,
+  body.coverfi-theme .benefits__label-text {
+    font-size: 1.62rem !important;
+  }
+
+  body.coverfi-theme .genre__title,
+  body.coverfi-theme .coverfi-benefits-heading,
+  body.coverfi-theme .faq__title,
+  body.coverfi-info-page .coverfi-info-hero h1 {
+    font-size: 3.25rem !important;
+  }
+
+  body.coverfi-theme .coverfi-praise-card {
+    flex-basis: 86vw !important;
+  }
+
+  body.coverfi-info-page .coverfi-info-hero {
+    padding-top: 5.5rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-paper-card h2,
+  body.coverfi-info-whitepaper .coverfi-paper-illustration h3 {
+    font-size: 2.05rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-contact-form input,
+  body.coverfi-info-page .coverfi-contact-form select,
+  body.coverfi-info-page .coverfi-contact-form textarea {
+    padding: 0.78rem 0.85rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.coverfi-theme *,
+  body.coverfi-theme *::before,
+  body.coverfi-theme *::after {
+    scroll-behavior: auto !important;
+  }
+
+  body.coverfi-theme .coverfi-testimonials-track,
+  body.coverfi-info-page .coverfi-flow-ring,
+  body.coverfi-info-page .coverfi-flow-node,
+  body.coverfi-info-page .coverfi-status-dot,
+  body.coverfi-info-page .coverfi-status-card,
+  body.coverfi-info-page .coverfi-status-card .coverfi-status-bars span {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
