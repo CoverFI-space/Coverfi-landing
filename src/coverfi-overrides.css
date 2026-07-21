@@ -1607,6 +1607,174 @@ body.coverfi-info-page .coverfi-contact-social-svg {
   color: currentColor;
 }
 
+body.coverfi-info-page .coverfi-partner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+body.coverfi-info-page .coverfi-partner-actions a,
+body.coverfi-info-page .coverfi-partner-final-cta,
+body.coverfi-info-page .coverfi-partner-login > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  color: inherit;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+body.coverfi-info-page .coverfi-partner-actions a,
+body.coverfi-info-page .coverfi-partner-final-cta {
+  background: #fff6a8;
+  padding: 0.9rem 1.15rem;
+}
+
+body.coverfi-info-page .coverfi-partner-actions a:first-child,
+body.coverfi-info-page .coverfi-partner-final-cta {
+  background: #ff0090;
+  color: #ffffff;
+}
+
+body.coverfi-info-page .coverfi-partner-login {
+  align-self: center;
+}
+
+body.coverfi-info-page .coverfi-partner-login__eyebrow {
+  width: fit-content;
+  border: 2px solid var(--black, #080909);
+  border-radius: 999px;
+  background: #fff6a8;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 1000;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.coverfi-info-page .coverfi-partner-login h2 {
+  margin: 0;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.9;
+}
+
+body.coverfi-info-page .coverfi-partner-login p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+body.coverfi-info-page .coverfi-partner-login > a {
+  width: 100%;
+  min-height: 3rem;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+body.coverfi-info-page .coverfi-partner-section {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 6vw, 7rem);
+  background: #fff9bf;
+  color: var(--black, #080909);
+}
+
+body.coverfi-info-page .coverfi-partner-section.is-steps {
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(8rem, 14vw, 13rem);
+  background: var(--yellow, #ffd84a);
+}
+
+body.coverfi-info-page .coverfi-partner-section__header {
+  max-width: 58rem;
+}
+
+body.coverfi-info-page .coverfi-partner-section__header h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.88;
+}
+
+body.coverfi-info-page .coverfi-partner-section__header p:last-child {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+body.coverfi-info-page .coverfi-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.25rem);
+}
+
+body.coverfi-info-page .coverfi-partner-card,
+body.coverfi-info-page .coverfi-partner-steps article {
+  border: 2px solid var(--black, #080909);
+  border-radius: 0.5rem;
+  background: #fffdf0;
+  box-shadow: 0 1rem 0 rgba(0, 0, 0, 0.12);
+}
+
+body.coverfi-info-page .coverfi-partner-card {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  min-height: 18rem;
+  padding: clamp(1rem, 2vw, 1.45rem);
+}
+
+body.coverfi-info-page .coverfi-partner-card span,
+body.coverfi-info-page .coverfi-partner-steps article span {
+  font-size: 0.74rem;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.coverfi-info-page .coverfi-partner-card h3,
+body.coverfi-info-page .coverfi-partner-steps article h3 {
+  margin: 0;
+  font-family: Champ, Arial, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  line-height: 0.9;
+}
+
+body.coverfi-info-page .coverfi-partner-card p,
+body.coverfi-info-page .coverfi-partner-steps article p {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.42;
+}
+
+body.coverfi-info-page .coverfi-partner-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.25rem);
+}
+
+body.coverfi-info-page .coverfi-partner-steps article {
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  background: #ff9f1c;
+}
+
+body.coverfi-info-page .coverfi-partner-final-cta {
+  width: fit-content;
+  min-width: 12rem;
+}
+
 @keyframes coverfiSpin {
   to { transform: rotate(360deg); }
 }
@@ -2301,6 +2469,27 @@ body.coverfi-info-page .coverfi-contact-social-svg {
     max-width: 100% !important;
     overflow-wrap: anywhere !important;
   }
+
+  body.coverfi-info-page .coverfi-partner-section {
+    padding: 2.5rem 1rem 4rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-section.is-steps {
+    padding-bottom: 7rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-section__header h2 {
+    font-size: 3.35rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-grid,
+  body.coverfi-info-page .coverfi-partner-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-card {
+    min-height: 15rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2350,6 +2539,25 @@ body.coverfi-info-page .coverfi-contact-social-svg {
   body.coverfi-info-page .coverfi-contact-form select,
   body.coverfi-info-page .coverfi-contact-form textarea {
     padding: 0.78rem 0.85rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-grid,
+  body.coverfi-info-page .coverfi-partner-steps {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-section__header h2,
+  body.coverfi-info-page .coverfi-partner-login h2 {
+    font-size: 2.55rem !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-card {
+    min-height: auto !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-actions a,
+  body.coverfi-info-page .coverfi-partner-final-cta {
+    width: 100% !important;
   }
 }
 

@@ -34,6 +34,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Whitepaper", href: "/whitepaper" },
   { label: "FAQs", href: "/faqs" },
+  { label: "Become a partner", href: "/partner" },
   { label: "Status", href: "/status" },
   { label: "Contact us", href: "/contact" },
   { label: "Docs", href: "https://docs.coverfi.space" },

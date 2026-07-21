@@ -5,6 +5,7 @@ import "./coverfi-overrides.css";
 const brand = "CoverFi";
 const logoSrc = "/assets/logo.png";
 const appUrl = "https://app.coverfi.space/";
+const partnerDashboardUrl = "https://partner.coverfi.space/";
 const githubUrl = "https://github.com/coverfi-space";
 const xUrl = "https://x.com/coverfidotspace";
 const supportEmail = "support@coverfi.space";
@@ -13,6 +14,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Whitepaper", href: "/whitepaper" },
   { label: "FAQs", href: "/faqs" },
+  { label: "Become a partner", href: "/partner" },
   { label: "Status", href: "/status" },
   { label: "Contact us", href: "/contact" },
   { label: "Docs", href: "https://docs.coverfi.space" },
@@ -460,9 +462,59 @@ const statusChecks = [
     description: "Partner APIs, SDKs, attribution, aggregate dashboard, and webhook readiness.",
     state: "Publishing path ready",
     detail: "Partner rewards are restricted to the protocol portion and never touch safety or underwriting funds.",
-    href: "/#partner-portal",
+    href: "/partner",
     components: ["API", "SDKs", "Dashboard"],
   },
+];
+
+const partnerFeatures = [
+  {
+    title: "Personalized Dashboard",
+    body: "Track signups, wallet-signed cover activity, attributed premium volume, reward status, and partner health from one dashboard.",
+    tag: "Dashboard",
+  },
+  {
+    title: "API And SDK Access",
+    body: "Use clean API routes, SDK helpers, and integration examples to embed CoverFi flows inside your own app or community surface.",
+    tag: "API",
+  },
+  {
+    title: "Partner Attribution",
+    body: "Connect referrals, campaigns, and integration sources to measurable CoverFi actions without turning private user notes public.",
+    tag: "Attribution",
+  },
+  {
+    title: "Revenue Visibility",
+    body: "See eligible partner rewards from the protocol portion while underwriting, safety, and reserve balances stay protected.",
+    tag: "Rewards",
+  },
+  {
+    title: "Sandbox Testing",
+    body: "Test protection quotes, username payments, receipt flows, and webhooks before promoting the experience to your users.",
+    tag: "Sandbox",
+  },
+  {
+    title: "Webhook Events",
+    body: "Receive integration-friendly status updates for signup, quote, protection, payment, receipt, and reward milestones.",
+    tag: "Webhooks",
+  },
+  {
+    title: "Launch Support",
+    body: "Get integration guidance, launch assets, docs references, and operational support for partner-led activations.",
+    tag: "Support",
+  },
+  {
+    title: "Trust-First UX",
+    body: "Keep wallet review, transparent fees, user control, and risk language visible in every partner-driven flow.",
+    tag: "UX",
+  },
+];
+
+const partnerSteps = [
+  ["Apply", "Create a partner account with email OTP and tell us what you want to integrate."],
+  ["Integrate", "Use the dashboard, API keys, SDK notes, and sandbox flows to wire your experience."],
+  ["Launch", "Send users into wallet-signed CoverFi actions with attribution and status visibility."],
+  ["Grow", "Review performance, rewards, support tickets, and product opportunities in the partner portal."],
 ];
 
 function copyAttributes(target, source) {
@@ -1030,6 +1082,70 @@ function statusMarkup() {
   `;
 }
 
+function partnerMarkup() {
+  return `
+    <section class="coverfi-info-hero is-partner">
+      <div class="coverfi-info-hero__copy">
+        <p class="coverfi-info-kicker">Partner program</p>
+        <h1>Become a CoverFi Partner</h1>
+        <p>Bring wallet-signed asset cover, live price context, username payments, private receipts, and transparent reward flows into your product, community, or distribution channel.</p>
+        <div class="coverfi-status-actions coverfi-partner-actions">
+          <a href="${partnerDashboardUrl}" target="_blank" rel="noreferrer">Get Started</a>
+          <a href="https://docs.coverfi.space" target="_blank" rel="noreferrer">Read Docs</a>
+        </div>
+      </div>
+      <form class="coverfi-contact-form coverfi-partner-login" action="${partnerDashboardUrl}" method="get">
+        <span class="coverfi-partner-login__eyebrow">Partner portal</span>
+        <h2>Email OTP Login</h2>
+        <p>Use the same email OTP flow from the partner dashboard. Enter your partner email and continue to the portal.</p>
+        <label>Email<input name="email" type="email" required placeholder="partner@example.com" autocomplete="email" /></label>
+        <button type="submit">Continue With Email OTP</button>
+        <a href="${partnerDashboardUrl}" target="_blank" rel="noreferrer">Open partner.coverfi.space</a>
+      </form>
+    </section>
+    <section class="coverfi-partner-section">
+      <div class="coverfi-partner-section__header">
+        <p class="coverfi-info-kicker">Features and benefits</p>
+        <h2>Everything partners need to launch cleanly.</h2>
+        <p>CoverFi partners get a focused operating surface for attribution, user flows, integrations, testing, support, and reward visibility.</p>
+      </div>
+      <div class="coverfi-partner-grid">
+        ${partnerFeatures
+          .map(
+            (feature, index) => `
+              <article class="coverfi-partner-card">
+                <span>${String(index + 1).padStart(2, "0")} ${escapeHtml(feature.tag)}</span>
+                <h3>${escapeHtml(feature.title)}</h3>
+                <p>${escapeHtml(feature.body)}</p>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+    <section class="coverfi-partner-section is-steps">
+      <div class="coverfi-partner-section__header">
+        <p class="coverfi-info-kicker">Partner flow</p>
+        <h2>From account to launch.</h2>
+      </div>
+      <div class="coverfi-partner-steps">
+        ${partnerSteps
+          .map(
+            ([title, body], index) => `
+              <article>
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <h3>${escapeHtml(title)}</h3>
+                <p>${escapeHtml(body)}</p>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      <a class="coverfi-partner-final-cta" href="${partnerDashboardUrl}" target="_blank" rel="noreferrer">Get Started</a>
+    </section>
+  `;
+}
+
 function contactMarkup() {
   return `
     <section class="coverfi-info-hero is-contact">
@@ -1057,12 +1173,21 @@ function contactMarkup() {
 function pageMarkup(kind) {
   if (kind === "whitepaper") return whitepaperMarkup();
   if (kind === "status") return statusMarkup();
+  if (kind === "partner") return partnerMarkup();
   return contactMarkup();
 }
 
 function applyInfoContent(kind) {
-  const activeHref = kind === "whitepaper" ? "/whitepaper" : kind === "status" ? "/status" : "/contact";
-  const title = kind === "whitepaper" ? "CoverFi Whitepaper" : kind === "status" ? "CoverFi Status" : "Contact CoverFi";
+  const activeHref =
+    kind === "whitepaper" ? "/whitepaper" : kind === "status" ? "/status" : kind === "partner" ? "/partner" : "/contact";
+  const title =
+    kind === "whitepaper"
+      ? "CoverFi Whitepaper"
+      : kind === "status"
+        ? "CoverFi Status"
+        : kind === "partner"
+          ? "CoverFi Partner Program"
+          : "Contact CoverFi";
 
   document.title = `${title} | CoverFi`;
   document.body.classList.add("coverfi-theme", "coverfi-info-page", `coverfi-info-${kind}`);
@@ -1146,6 +1271,10 @@ export function WhitepaperPage() {
 
 export function StatusPage() {
   return <InfoPage kind="status" />;
+}
+
+export function PartnerPage() {
+  return <InfoPage kind="partner" />;
 }
 
 export function ContactPage() {

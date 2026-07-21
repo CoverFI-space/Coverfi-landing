@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LandingPage from "./landingpage";
 import FaqPage from "./FaqPage";
-import { ContactPage, StatusPage, WhitepaperPage } from "./InfoPage";
+import { ContactPage, PartnerPage, StatusPage, WhitepaperPage } from "./InfoPage";
 
 function App() {
   return (
@@ -11,6 +11,9 @@ function App() {
         <Route path="/faqs" element={<FaqPage />} />
         <Route path="/faq" element={<Navigate to="/faqs" replace />} />
         <Route path="/whitepaper" element={<WhitepaperPage />} />
+        <Route path="/partner" element={<PartnerPage />} />
+        <Route path="/partners" element={<Navigate to="/partner" replace />} />
+        <Route path="/partner-program" element={<Navigate to="/partner" replace />} />
         <Route path="/status" element={<StatusPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<LandingPage />} />
