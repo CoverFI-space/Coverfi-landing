@@ -191,14 +191,15 @@ const rewardDefaultItems = [
 ];
 
 const rewardHoverItems = [
-  "Capacity",
-  "Freshness",
-  "Payments",
-  "Proof",
-  "Review",
-  "Revenue",
-  "Payouts",
-  "Signing",
+  "Partners",
+  "Claims",
+  "Wallet",
+   "Reserve",
+  "Oracle",
+  "Username",
+  "Receipts",
+  "Drafts",
+  
 ];
 const rewardHoverImageSet = [
   { src: imageKitAssetImages.assetProtect, alt: "Asset protection dashboard" },
@@ -630,8 +631,11 @@ function addHeroDetails() {
   const poweredBy = document.createElement("div");
   poweredBy.className = "coverfi-powered-by";
   poweredBy.innerHTML = `
-    <span>Powered by</span>
-    <img src="/assets/XLM.webp" alt="Stellar" loading="eager" decoding="async" />
+    <span class="coverfi-powered-by__label">Powered by</span>
+    <span class="coverfi-powered-by__brand">
+      <img src="/assets/XLM.webp" alt="Stellar" loading="eager" decoding="async" />
+      <span>Stellar</span>
+    </span>
   `;
   heroHeader.prepend(poweredBy);
 

@@ -185,23 +185,42 @@ body.coverfi-theme .coverfi-powered-by {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.72rem;
   width: fit-content;
   margin: 0 auto clamp(0.85rem, 1.7vw, 1.25rem);
-  padding: 0.62rem 0.9rem;
-  border: 2px solid var(--black, #080909);
+  padding: 0.44rem 0.5rem 0.44rem 0.95rem;
+  border: 0.16rem solid var(--black, #080909);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, #fff8bd 0%, #fff2a1 100%);
+  box-shadow: 0 0.35rem 0 var(--black, #080909), 0 0.7rem 1.2rem rgba(8, 9, 9, 0.14);
   color: var(--black, #080909);
-  font-size: clamp(0.82rem, 1.15vw, 1rem);
   font-weight: 900;
   line-height: 1;
+  transform: rotate(-1.5deg);
 }
 
-body.coverfi-theme .coverfi-powered-by img {
+body.coverfi-theme .coverfi-powered-by__label {
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.coverfi-theme .coverfi-powered-by__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.42rem 0.68rem 0.42rem 0.5rem;
+  border: 0.12rem solid var(--black, #080909);
+  border-radius: 999px;
+  background: var(--white, #fff);
+  font-size: clamp(0.92rem, 1.25vw, 1.1rem);
+  box-shadow: inset 0 -0.12rem 0 rgba(8, 9, 9, 0.1);
+}
+
+body.coverfi-theme .coverfi-powered-by__brand img {
   display: block;
-  width: clamp(1.15rem, 1.8vw, 1.55rem);
-  height: clamp(1.15rem, 1.8vw, 1.55rem);
+  width: clamp(1.2rem, 1.8vw, 1.55rem);
+  height: clamp(1.2rem, 1.8vw, 1.55rem);
   object-fit: contain;
 }
 
@@ -2113,11 +2132,21 @@ body.coverfi-info-page .coverfi-partner-final-cta {
 
   body.coverfi-theme .coverfi-powered-by {
     margin-bottom: 0.35rem !important;
-    padding: 0.52rem 0.72rem !important;
-    font-size: 0.78rem !important;
+    gap: 0.5rem !important;
+    padding: 0.36rem 0.42rem 0.36rem 0.72rem !important;
   }
 
-  body.coverfi-theme .coverfi-powered-by img {
+  body.coverfi-theme .coverfi-powered-by__label {
+    font-size: 0.68rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by__brand {
+    gap: 0.34rem !important;
+    padding: 0.34rem 0.54rem 0.34rem 0.42rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by__brand img {
     width: 1.2rem !important;
     height: 1.2rem !important;
   }
@@ -2394,7 +2423,15 @@ body.coverfi-info-page .coverfi-partner-final-cta {
   }
 
   body.coverfi-theme .coverfi-powered-by {
-    font-size: 0.74rem !important;
+    gap: 0.42rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by__label {
+    font-size: 0.6rem !important;
+  }
+
+  body.coverfi-theme .coverfi-powered-by__brand {
+    font-size: 0.76rem !important;
   }
 
   body.coverfi-theme .genre__title,
