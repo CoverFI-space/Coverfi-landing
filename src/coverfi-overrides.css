@@ -45,10 +45,132 @@ body.coverfi-theme .main > section:last-child {
 body.coverfi-theme .footer {
   position: relative !important;
   z-index: 2 !important;
+  margin-top: clamp(-6rem, -8vw, -3rem) !important;
+  padding-top: clamp(5.5rem, 10vw, 10rem) !important;
+  overflow: hidden !important;
+  background: var(--black, #080909) !important;
+  color: var(--white, #ffffff) !important;
+}
+
+body.coverfi-theme .footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 0;
+  height: 0.45rem;
+  background: linear-gradient(90deg, #ff008c 0%, #20d6df 34%, #fff08d 67%, #ffa31a 100%);
+}
+
+body.coverfi-theme .footer__top {
+  position: relative !important;
+  z-index: 1 !important;
+  padding-top: clamp(3rem, 6vw, 5.25rem) !important;
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem) !important;
+  background: transparent !important;
+}
+
+body.coverfi-theme .footer__top-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem) !important;
+  align-items: start !important;
+  gap: clamp(2rem, 5vw, 4rem) !important;
+  width: min(100% - 2rem, 72rem) !important;
+  max-width: 72rem !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+body.coverfi-theme .footer__top-nav,
+body.coverfi-theme .footer__top-form {
+  width: auto !important;
+  max-width: none !important;
+}
+
+body.coverfi-theme .footer__top-form {
+  margin-left: 0 !important;
+  padding: clamp(1.15rem, 2.5vw, 1.75rem) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 0.85rem 0 rgba(0, 0, 0, 0.24) !important;
+}
+
+body.coverfi-theme .footer__form-title {
+  margin-top: 0 !important;
+  color: var(--pale-yellow, #fff08d) !important;
+  font-size: clamp(2.25rem, 4vw, 3.45rem) !important;
+  line-height: 0.9 !important;
+}
+
+body.coverfi-theme .footer__cta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.7rem !important;
+  margin-top: 1.35rem !important;
+}
+
+body.coverfi-theme .footer__socials {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+body.coverfi-theme .footer__mob-socials {
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+body.coverfi-theme .footer__socials .button-social,
+body.coverfi-theme .footer__mob-socials .button-social {
+  border: 2px solid rgba(255, 255, 255, 0.75) !important;
+  background: var(--pale-yellow, #fff08d) !important;
+  color: var(--black, #080909) !important;
+  box-shadow: 0 0.25rem 0 rgba(255, 0, 140, 0.95) !important;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease !important;
+}
+
+body.coverfi-theme .footer__socials .button-social:hover,
+body.coverfi-theme .footer__mob-socials .button-social:hover {
+  background: var(--cyan, #20d6df) !important;
+  transform: translateY(-0.12rem) !important;
+  box-shadow: 0 0.38rem 0 rgba(255, 0, 140, 0.95) !important;
 }
 
 body.coverfi-theme .footer__bottom-credit {
   display: none !important;
+}
+
+body.coverfi-theme .footer__bottom {
+  position: relative !important;
+  z-index: 1 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: #050606 !important;
+}
+
+body.coverfi-theme .footer__bottom-inner {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  width: min(100% - 2rem, 72rem) !important;
+  max-width: 72rem !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+body.coverfi-theme .footer__bottom-text,
+body.coverfi-theme .footer__bottom-copyright {
+  color: rgba(255, 255, 255, 0.78) !important;
 }
 
 body.coverfi-theme .header {
@@ -945,6 +1067,29 @@ body.coverfi-theme .coverfi-text-button span {
   white-space: nowrap;
 }
 
+body.coverfi-theme .footer__cta .coverfi-text-button {
+  min-width: 11.5rem;
+  min-height: 3.45rem;
+  border-color: var(--white, #ffffff) !important;
+  background: var(--pale-yellow, #fff08d) !important;
+  box-shadow: 0 0.32rem 0 var(--pink, #ff008c) !important;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease !important;
+}
+
+body.coverfi-theme .footer__cta .coverfi-text-button:nth-child(2) {
+  background: var(--orange, #ffa31a) !important;
+}
+
+body.coverfi-theme .footer__cta .coverfi-text-button:hover {
+  background: var(--cyan, #20d6df) !important;
+  transform: translateY(-0.14rem) !important;
+  box-shadow: 0 0.46rem 0 var(--pink, #ff008c) !important;
+  text-decoration: none !important;
+}
+
 body.coverfi-theme .coverfi-social-icon .button-social__icon-outer {
   display: flex !important;
   align-items: center;
@@ -967,19 +1112,100 @@ body.coverfi-theme .coverfi-social-svg {
 }
 
 body.coverfi-theme .coverfi-footer-link-grid {
-  display: flex !important;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem 1rem !important;
+  gap: 0.7rem 0.8rem !important;
+  margin-top: clamp(1.25rem, 2.4vw, 2rem) !important;
+}
+
+body.coverfi-theme .footer__links.coverfi-footer-link-grid {
+  display: flex !important;
+}
+
+body.coverfi-theme .footer__mob-links.coverfi-footer-link-grid {
+  display: none !important;
 }
 
 body.coverfi-theme .coverfi-footer-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 2.35rem !important;
+  padding: 0.55rem 0.8rem !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
   color: inherit !important;
+  line-height: 1 !important;
   text-decoration: none !important;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease !important;
+}
+
+body.coverfi-theme .coverfi-footer-link .footer__bottom-text {
+  color: inherit !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
 }
 
 body.coverfi-theme .coverfi-footer-link:hover {
-  text-decoration: underline !important;
+  border-color: var(--black, #080909) !important;
+  background: var(--pale-yellow, #fff08d) !important;
+  color: var(--black, #080909) !important;
+  transform: translateY(-0.1rem) !important;
+  text-decoration: none !important;
+}
+
+body.coverfi-theme .footer .form__group,
+body.coverfi-theme .footer form {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  gap: 0.65rem !important;
+  margin-top: 1rem !important;
+}
+
+body.coverfi-theme .footer .form__input {
+  min-height: 3.35rem !important;
+  flex: 1 1 13rem !important;
+  min-width: 0 !important;
+  border: 2px solid var(--black, #080909) !important;
+  border-radius: 999px !important;
+  background: var(--white, #ffffff) !important;
+  color: var(--black, #080909) !important;
+  font-weight: 700 !important;
+}
+
+body.coverfi-theme .footer .form__input::placeholder {
+  color: rgba(8, 9, 9, 0.64) !important;
+}
+
+body.coverfi-theme .footer .form__submit,
+body.coverfi-theme .footer input[type="submit"] {
+  min-height: 3.35rem !important;
+  padding-right: 1.2rem !important;
+  padding-left: 1.2rem !important;
+  border: 2px solid var(--black, #080909) !important;
+  border-radius: 999px !important;
+  background: var(--pink, #ff008c) !important;
+  color: var(--white, #ffffff) !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  box-shadow: 0 0.25rem 0 var(--orange, #ffa31a) !important;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease !important;
+}
+
+body.coverfi-theme .footer .form__submit:hover,
+body.coverfi-theme .footer input[type="submit"]:hover {
+  background: var(--orange, #ffa31a) !important;
+  transform: translateY(-0.1rem) !important;
+  box-shadow: 0 0.38rem 0 var(--pink, #ff008c) !important;
 }
 
 body.coverfi-theme .gift__visual.coverfi-asset-preview-card {
@@ -2496,6 +2722,15 @@ body.coverfi-info-page .coverfi-partner-final-cta {
     max-width: 100% !important;
   }
 
+  body.coverfi-theme .footer__top-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  body.coverfi-theme .footer__top-form {
+    padding: 1rem !important;
+  }
+
   body.coverfi-theme .footer__cta {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -2511,6 +2746,22 @@ body.coverfi-info-page .coverfi-partner-final-cta {
     justify-content: flex-start !important;
     gap: 0.65rem 0.9rem !important;
   }
+
+  body.coverfi-theme .footer__socials {
+    display: none !important;
+  }
+
+  body.coverfi-theme .footer__links.coverfi-footer-link-grid {
+    display: none !important;
+  }
+
+  body.coverfi-theme .footer__mob-links.coverfi-footer-link-grid {
+    display: flex !important;
+  }
+
+  body.coverfi-theme .footer__mob-socials {
+    display: flex !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2524,6 +2775,44 @@ body.coverfi-info-page .coverfi-partner-final-cta {
     width: 2.55rem !important;
     height: 2.55rem !important;
     min-width: 2.55rem !important;
+  }
+
+  body.coverfi-theme .footer {
+    margin-top: -3.5rem !important;
+    padding-top: 5rem !important;
+  }
+
+  body.coverfi-theme .footer__top {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  body.coverfi-theme .footer__form-title {
+    font-size: clamp(2rem, 10vw, 2.85rem) !important;
+  }
+
+  body.coverfi-theme .footer .form__group,
+  body.coverfi-theme .footer form {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  body.coverfi-theme .footer .form__input,
+  body.coverfi-theme .footer .form__submit,
+  body.coverfi-theme .footer input[type="submit"] {
+    width: 100% !important;
+  }
+
+  body.coverfi-theme .coverfi-footer-link {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    min-width: 8rem !important;
+    padding-right: 0.65rem !important;
+    padding-left: 0.65rem !important;
+  }
+
+  body.coverfi-theme .footer__bottom-inner {
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   body.coverfi-theme .header__menu-toggle {
