@@ -526,12 +526,24 @@ function copyAttributes(target, source) {
   }
 }
 
+function isSameOriginAsset(script) {
+  if (!script.src) return false;
+
+  const url = new URL(script.src, window.location.href);
+  return url.origin === window.location.origin && url.pathname.startsWith("/assets/");
+}
+
 function executeScript(sourceScript) {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
 
     for (const attribute of Array.from(sourceScript.attributes)) {
       script.setAttribute(attribute.name, attribute.value);
+    }
+
+    if (isSameOriginAsset(sourceScript)) {
+      script.removeAttribute("integrity");
+      script.removeAttribute("crossorigin");
     }
 
     if (sourceScript.src) {

@@ -680,8 +680,15 @@ body.coverfi-theme .coverfi-rewards-pop-up .pop-up__button {
 }
 
 body.coverfi-theme .coverfi-rewards-pop-up .pop-up__button-svg {
-  width: clamp(6.55rem, 7vw, 5.9rem);
-  height: clamp(6.55rem, 7vw, 5.9rem);
+  display: block;
+  width: clamp(7rem, 8.2vw, 7.9rem);
+  height: clamp(7rem, 8.2vw, 7.9rem);
+  object-fit: contain;
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up .pop-up__overlay {
+  left: 8.65em;
+  bottom: 6.35em;
 }
 
 body.coverfi-theme .coverfi-rewards-pop-up .pop-up__overlay-inner {
