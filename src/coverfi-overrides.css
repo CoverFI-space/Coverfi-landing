@@ -35,11 +35,11 @@ body.coverfi-theme .main {
 body.coverfi-theme .main {
   position: relative !important;
   z-index: 1 !important;
-  padding-bottom: clamp(8rem, 16vw, 16rem) !important;
+  padding-bottom: clamp(3rem, 7vw, 7rem) !important;
 }
 
 body.coverfi-theme .main > section:last-child {
-  margin-bottom: clamp(3rem, 8vw, 8rem) !important;
+  margin-bottom: clamp(0.75rem, 2.5vw, 2.5rem) !important;
 }
 
 body.coverfi-theme .footer {
@@ -1064,6 +1064,8 @@ body.coverfi-theme .coverfi-text-button {
 
 body.coverfi-theme .coverfi-text-button span {
   color: inherit !important;
+  font-size: 1.12rem !important;
+  line-height: 1 !important;
   white-space: nowrap;
 }
 
@@ -2217,6 +2219,8 @@ body.coverfi-info-page .coverfi-partner-card {
   gap: 0.8rem;
   min-height: 18rem;
   padding: clamp(1rem, 2vw, 1.45rem);
+  min-width: 0;
+  overflow: hidden;
 }
 
 body.coverfi-info-page .coverfi-partner-card span,
@@ -2235,12 +2239,26 @@ body.coverfi-info-page .coverfi-partner-steps article h3 {
   line-height: 0.9;
 }
 
+body.coverfi-info-page .coverfi-partner-card h3 {
+  max-width: 100%;
+  font-size: clamp(2.2rem, 2.6vw, 2.85rem);
+  line-height: 0.92;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
 body.coverfi-info-page .coverfi-partner-card p,
 body.coverfi-info-page .coverfi-partner-steps article p {
   margin: 0;
   font-size: 0.98rem;
   font-weight: 800;
   line-height: 1.42;
+}
+
+body.coverfi-info-page .coverfi-partner-card p,
+body.coverfi-info-page .coverfi-partner-card span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 body.coverfi-info-page .coverfi-partner-steps {
@@ -2522,7 +2540,7 @@ body.coverfi-info-page .coverfi-partner-final-cta {
   }
 
   body.coverfi-theme .main {
-    padding-bottom: 6rem !important;
+    padding-bottom: 3.5rem !important;
   }
 
   body.coverfi-theme .coverfi-intro-grid {
@@ -3187,9 +3205,24 @@ body.coverfi-info-page .coverfi-partner-final-cta {
     min-height: auto !important;
   }
 
+  body.coverfi-info-page .coverfi-partner-card h3 {
+    font-size: 2rem !important;
+    line-height: 0.95 !important;
+  }
+
   body.coverfi-info-page .coverfi-partner-actions a,
   body.coverfi-info-page .coverfi-partner-final-cta {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 992px) {
+  body.coverfi-info-page .coverfi-partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.coverfi-info-page .coverfi-partner-card {
+    min-height: 16rem !important;
   }
 }
 
