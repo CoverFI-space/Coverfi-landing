@@ -39,6 +39,9 @@ const navItems = [
   { label: "Contact us", href: "/contact" },
   { label: "Docs", href: "https://docs.coverfi.space" },
 ];
+const headerNavItems = navItems.filter((item) =>
+  ["Whitepaper", "FAQs", "Become a partner", "Docs"].includes(item.label),
+);
 const logoSrc = "/assets/logo.png";
 const appUrl = "https://app.coverfi.space/";
 const githubUrl = "https://github.com/coverfi-space";
@@ -566,6 +569,7 @@ function setLineBreakText(selector, lines) {
 
 function ensureNavListItems() {
   document.querySelectorAll(".header__nav-list, .menu__nav-list").forEach((list) => {
+    const links = list.classList.contains("menu__nav-list") ? navItems : headerNavItems;
     const itemSelector = list.classList.contains("menu__nav-list")
       ? ".menu__nav-list-item"
       : ".header__nav-list-item";
@@ -578,7 +582,7 @@ function ensureNavListItems() {
 
     if (!items.length) return;
 
-    while (items.length < navItems.length) {
+    while (items.length < links.length) {
       const clone = items[items.length % items.length].cloneNode(true);
       if (ctaItem) {
         list.insertBefore(clone, ctaItem);
@@ -589,7 +593,7 @@ function ensureNavListItems() {
     }
 
     items.forEach((item, index) => {
-      if (index >= navItems.length) item.remove();
+      if (index >= links.length) item.remove();
     });
   });
 }
@@ -1145,11 +1149,16 @@ function updateLogosAndLinks() {
 
   removePostHeroBranding();
 
-  document.querySelectorAll(".header__nav-list-item .button, .menu__nav-list-item .button").forEach((link, index) => {
-    const navIndex = index % navItems.length;
-    setButtonText(link, navItems[navIndex].label);
-    link.setAttribute("href", navItems[navIndex].href);
-    setExternalTarget(link, navItems[navIndex].href);
+  [
+    [".header__nav-list-item .button", headerNavItems],
+    [".menu__nav-list-item .button", navItems],
+  ].forEach(([selector, links]) => {
+    document.querySelectorAll(selector).forEach((link, index) => {
+      const item = links[index % links.length];
+      setButtonText(link, item.label);
+      link.setAttribute("href", item.href);
+      setExternalTarget(link, item.href);
+    });
   });
 
   document.querySelectorAll("a[href*='coverfi.space/books']").forEach((link) => {

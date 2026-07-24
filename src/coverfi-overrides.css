@@ -55,6 +55,47 @@ body.coverfi-theme .header {
   top: 0 !important;
 }
 
+@media (min-width: 992px) {
+  body.coverfi-theme .header__nav {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+
+  body.coverfi-theme .header__nav-list {
+    display: flex !important;
+    min-width: 0 !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: clamp(0.25rem, 0.6vw, 0.6rem) !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item {
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    padding: 0.55rem clamp(0.5rem, 0.9vw, 0.8rem) !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button__inner,
+  body.coverfi-theme .header__nav-list-item .button__text {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.coverfi-theme .header__nav-list {
+    flex-wrap: nowrap !important;
+  }
+}
+
 body.coverfi-theme .hero.is--bg-yellow {
   margin-top: -2px !important;
   padding-top: 2px !important;
