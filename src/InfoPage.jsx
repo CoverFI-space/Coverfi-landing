@@ -13,10 +13,9 @@ const supportEmail = "support@coverfi.space";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Whitepaper", href: "/whitepaper" },
-  { label: "FAQs", href: "/faqs" },
+  { label: "Contact us", href: "/contact" },
   { label: "Become a partner", href: "/partner" },
   { label: "Status", href: "/status" },
-  { label: "Contact us", href: "/contact" },
   { label: "Docs", href: "https://docs.coverfi.space" },
 ];
 const footerLinks = [
@@ -611,6 +610,60 @@ function createLogoImage(className) {
   return image;
 }
 
+function attachNavLogoPopUp(image) {
+  const link = image.closest(".header__title-link");
+  const wrapper = link?.closest(".header__title");
+  if (!link || !wrapper) return;
+
+  wrapper.classList.add("pop-up", "coverfi-nav-logo-pop-up");
+  wrapper.setAttribute("data-pop-up", "");
+  wrapper.setAttribute("data-wf--logo-pop-up--variant", "right-bottom");
+
+  link.classList.add("coverfi-nav-logo-button", "pop-up__button");
+  link.setAttribute("data-pop-up-button", "");
+  link.setAttribute("aria-label", "Show CoverFi app link");
+
+  let inner = link.querySelector(":scope > .coverfi-nav-logo-inner");
+  if (!inner) {
+    inner = document.createElement("span");
+    inner.className = "pop-up__button-inner coverfi-nav-logo-inner";
+    link.replaceChildren(inner);
+  }
+
+  if (image.parentElement !== inner) inner.replaceChildren(image);
+
+  let overlay = wrapper.querySelector(":scope > .coverfi-nav-logo-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "pop-up__overlay coverfi-nav-logo-overlay";
+    overlay.innerHTML = `
+      <div class="pop-up__overlay-inner coverfi-nav-logo-overlay-inner">
+        <div class="pop-up__overlay-bg-wrap">
+          <div class="pop-up__overlay-ears">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 44 45" width="100%" class="pop-up__overlay-left-ear"><path fill="currentColor" d="M1.335.198c.671-.316 1.5-.254 2.186.187C27.678 16.847 39.839 36.953 44 45h-6.048c-2.382-1.604-6.964-3.674-15.652-4.814C2.999 37.666-.665 14.174.09 2.04.152 1.28.589.515 1.335.198Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 80" width="100%" class="pop-up__overlay-right-ear"><path fill="currentColor" d="M19.388.879c.667-.771 1.647-1.018 2.559-.807.912.21 1.682.956 1.926 1.861C34.595 38.09 25.79 69.237 21.823 80h-4.188c-.17-4.22-2.739-13.318-10.975-22.064-8.493-9.099-8.88-21.913-1.063-37.23C11.221 9.603 19.091 1.266 19.388.879Z"></path></svg>
+          </div>
+          <div class="pop-up__overlay-bg"></div>
+        </div>
+        <div class="pop-up__overlay-content">
+          <h3 class="pop-up__overlay-title u-heading-xs">Ready to protect assets?</h3>
+          <div class="pop-up__overlay-content-action">
+            <a data-button-alt="" data-wf--button-alt--variant="small" href="${appUrl}" target="_blank" rel="noreferrer" class="button-alt w-inline-block coverfi-nav-logo-overlay-cta">
+              <span class="button-alt__text-wrap"><span class="button-alt__bg"></span><span class="button-alt__text-outer"><span data-button-alt-text="" class="button-alt__text">Open CoverFi</span></span></span>
+              <span class="button-alt__icon-wrap"><span class="button-alt__bg"></span><span class="button-alt__icon-outer"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 14 13" fill="none" aria-hidden="true" class="button-alt__icon"><path d="M13.58 5.66v.845l-5.994 5.66-1.71-2.063a61.427 61.427 0 0 1 4.265-2.988l-.02-.078c-1.828.196-4.107.294-6.387.294H0V4.835h3.734c2.28 0 4.56.098 6.387.294l.02-.059a67.638 67.638 0 0 1-4.265-3.006L7.586 0l5.994 5.66Z" fill="currentColor"></path></svg></span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pop-up__overlay-target-zone"></div>
+    `;
+    wrapper.appendChild(overlay);
+  }
+
+  const cta = overlay.querySelector(".coverfi-nav-logo-overlay-cta");
+  cta.setAttribute("href", appUrl);
+}
+
 function createSocialIcon(icon) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", "0 0 24 24");
@@ -658,13 +711,19 @@ function updateNavAndFooter(activeHref) {
     image.removeAttribute("srcset");
     image.removeAttribute("sizes");
     image.classList.add("coverfi-logo-img");
+
+    if (image.classList.contains("header__title-logo")) {
+      image.classList.add("coverfi-nav-logo-img", "pop-up__button-svg");
+      image.closest(".header__title-link")?.classList.add("coverfi-nav-logo-button", "pop-up__button");
+      attachNavLogoPopUp(image);
+    }
   });
 
   document.querySelectorAll("[data-transition-logo]").forEach((container) => {
     container.replaceChildren(createLogoImage("coverfi-transition-logo"));
   });
 
-  document.querySelectorAll(".pop-up__button-inner").forEach((container) => {
+  document.querySelectorAll(".pop-up__button-inner:not(.coverfi-nav-logo-inner)").forEach((container) => {
     container.replaceChildren(createLogoImage("coverfi-popup-logo"));
   });
 

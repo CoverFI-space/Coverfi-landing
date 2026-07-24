@@ -57,6 +57,10 @@ body.coverfi-theme .header {
 
 @media (min-width: 992px) {
   body.coverfi-theme .header__nav {
+    --button-height: 4em;
+    --button-padding: 0 1.35em;
+    --button-alt-height: 4em;
+    --button-alt-padding-x: 1.35em;
     min-width: 0 !important;
     flex: 1 1 auto !important;
     overflow: hidden !important;
@@ -68,18 +72,45 @@ body.coverfi-theme .header {
     align-items: center !important;
     flex-wrap: wrap !important;
     justify-content: flex-end !important;
-    gap: clamp(0.25rem, 0.6vw, 0.6rem) !important;
+    column-gap: clamp(0.35rem, 0.18vw, 0.18rem) !important;
+    row-gap: 0.25rem !important;
   }
 
   body.coverfi-theme .header__nav-list-item {
     min-width: 0 !important;
     flex: 0 1 auto !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   body.coverfi-theme .header__nav-list-item .button {
     box-sizing: border-box !important;
     max-width: 100% !important;
-    padding: 0.55rem clamp(0.5rem, 0.9vw, 0.8rem) !important;
+    height: var(--button-height) !important;
+    padding: 0 !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button__inner {
+    padding: var(--button-padding) !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button-alt {
+    height: var(--button-alt-height) !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button-alt__text {
+    padding-right: var(--button-alt-padding-x) !important;
+    padding-left: var(--button-alt-padding-x) !important;
+    font-size: 1.5em !important;
+    line-height: 1.2 !important;
+  }
+
+  body.coverfi-theme .header__nav-list-item .button-alt__icon-wrap {
+    align-self: center !important;
+    width: calc(var(--button-alt-height) + 0.18em) !important;
+    min-width: calc(var(--button-alt-height) + 0.18em) !important;
+    height: calc(var(--button-alt-height) + 0.18em) !important;
+    margin-left: 0.1em !important;
   }
 
   body.coverfi-theme .header__nav-list-item .button__inner,
@@ -183,7 +214,7 @@ body.coverfi-theme .hero__content .button-alt {
 }
 
 body.coverfi-theme .hero__content .button-alt__text {
-  font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+  font-size: clamp(1.5rem, 1.5vw, 1.25rem) !important;
 }
 
 body.coverfi-theme .hero__content .button-alt__icon-wrap {
@@ -195,6 +226,11 @@ body.coverfi-theme .hero__content .button-alt__icon-wrap {
 body.coverfi-theme .hero__content .button-alt__icon-outer {
   width: 100% !important;
   height: 100% !important;
+  
+}
+
+body.coverfi-theme .button-alt:not(.is--menu-toggle) .button-alt__icon-wrap {
+  margin-left: 0.1em !important;
 }
 
 body.coverfi-theme .hero__content .button-alt__icon {
@@ -226,6 +262,54 @@ body.coverfi-theme .menu__header-title-logo.coverfi-logo-img {
   height: clamp(1.85rem, 3vw, 2.7rem) !important;
   max-width: 11.5rem !important;
   margin-top: 0 !important;
+}
+
+body.coverfi-theme .coverfi-nav-logo-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform-origin: center center;
+}
+
+body.coverfi-theme .coverfi-nav-logo-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none;
+}
+
+body.coverfi-theme .header__title-logo.coverfi-logo-img.coverfi-nav-logo-img {
+  height: clamp(2.75rem, 4.4vw, 4.15rem) !important;
+  max-width: 15rem !important;
+  transform-origin: center right;
+}
+
+body.coverfi-theme .coverfi-nav-logo-button:is(:hover, :focus-visible) .coverfi-nav-logo-img {
+  scale: 0.955 0.925;
+  translate: 0 0.18em 0;
+  rotate: -10deg;
+  transform: rotate(10deg) translate3d(0, -0.18em, 0);
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up {
+  z-index: 20;
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up .coverfi-nav-logo-overlay {
+  inset: calc(100% + 0.8rem) auto auto 0 !important;
+  transform-origin: top left;
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up.is--open .coverfi-nav-logo-overlay-inner {
+  transform: rotate(-2deg) translateY(0);
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up .coverfi-nav-logo-overlay-inner {
+  transform: rotate(4deg) translateY(1.5em);
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up .pop-up__overlay-content-action {
+  pointer-events: auto;
 }
 
 /* Post-hero logo placements paused for now.
@@ -2599,6 +2683,20 @@ body.coverfi-info-page .coverfi-partner-final-cta {
   body.coverfi-info-page .coverfi-partner-actions a,
   body.coverfi-info-page .coverfi-partner-final-cta {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 991px) {
+  body.coverfi-theme .header__title-logo.coverfi-logo-img.coverfi-nav-logo-img {
+    height: 2.7rem !important;
+    max-width: 9.75rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.coverfi-theme .header__title-logo.coverfi-logo-img.coverfi-nav-logo-img {
+    height: 2.35rem !important;
+    max-width: 8.5rem !important;
   }
 }
 
