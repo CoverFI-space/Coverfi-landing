@@ -971,10 +971,40 @@ function addBenefitsHeading() {
   const benefitsInner = document.querySelector(".benefits__inner");
   if (!benefitsInner || benefitsInner.querySelector(".coverfi-benefits-heading")) return;
 
-  const heading = document.createElement("h2");
-  heading.className = "coverfi-benefits-heading";
-  heading.textContent = "Why CoverFi";
+  const svgNs = "http://www.w3.org/2000/svg";
+  const heading = document.createElementNS(svgNs, "svg");
+  heading.setAttribute("class", "coverfi-benefits-heading");
+  heading.setAttribute("viewBox", "0 0 700 360");
+  heading.setAttribute("role", "img");
+  heading.setAttribute("aria-label", "Why CoverFi");
+
+  const path = document.createElementNS(svgNs, "path");
+  path.setAttribute("id", "coverfi-benefits-heading-arc");
+  path.setAttribute("d", "M 88 265 A 262 262 0 0 1 612 265");
+  path.setAttribute("fill", "none");
+
+  const defs = document.createElementNS(svgNs, "defs");
+  defs.appendChild(path);
+
+  const text = document.createElementNS(svgNs, "text");
+  const textPath = document.createElementNS(svgNs, "textPath");
+  textPath.setAttribute("href", "#coverfi-benefits-heading-arc");
+  textPath.setAttribute("startOffset", "50%");
+  textPath.setAttribute("text-anchor", "middle");
+  textPath.textContent = "Why CoverFi?";
+
+  text.appendChild(textPath);
+  heading.append(defs, text);
   benefitsInner.prepend(heading);
+}
+
+function addBenefitsBackdropLogo() {
+  const benefitsInner = document.querySelector(".benefits__inner");
+  if (!benefitsInner || benefitsInner.querySelector(".coverfi-benefits-backdrop-logo")) return;
+
+  const logo = createLogoImage("coverfi-benefits-backdrop-logo");
+  logo.setAttribute("aria-hidden", "true");
+  benefitsInner.insertBefore(logo, benefitsInner.querySelector(".benefits__label-wrap"));
 }
 
 function configureBoxSequenceFrames() {
@@ -1394,6 +1424,7 @@ function applyCoverFiContent() {
   updateFeatureRows();
   replaceBenefitsBackground();
   addBenefitsHeading();
+  addBenefitsBackdropLogo();
   removeBoxSequenceSection();
   configureBoxSequenceFrames();
   updateBoxCta();
