@@ -471,7 +471,11 @@ body.coverfi-theme .flow {
 
 body.coverfi-theme .genre {
   margin-top: clamp(2.5rem, 6vw, 6rem) !important;
-  padding-bottom: clamp(4rem, 8vw, 8rem) !important;
+  padding-bottom: clamp(1.75rem, 4vw, 4rem) !important;
+}
+
+body.coverfi-theme .genre__inner {
+  padding-bottom: clamp(1.5rem, 3vw, 3.5rem) !important;
 }
 
 body.coverfi-theme .benefits__logo,
@@ -588,6 +592,42 @@ body.coverfi-theme .genre__img.coverfi-reward-hover-img {
   background: #ffffff;
   object-fit: contain;
   object-position: center;
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: clamp(9rem, 14vw, 11.5rem);
+  margin-top: clamp(0.25rem, 1.2vw, 1rem);
+  position: relative;
+  z-index: 4;
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up {
+  --pop-up-color: var(--black, #080909);
+  --pop-up-color-background: var(--white, #fff);
+  --pop-up-logo-color: var(--white, #fff);
+  transform: none;
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up .pop-up__button {
+  color: var(--white, #fff);
+  filter: drop-shadow(0 0.18rem 0 rgba(8, 9, 9, 0.22));
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up .pop-up__button-svg {
+  width: clamp(6.55rem, 7vw, 5.9rem);
+  height: clamp(6.55rem, 7vw, 5.9rem);
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up .pop-up__overlay-inner {
+  pointer-events: auto;
+  transform: rotate(3deg);
+}
+
+body.coverfi-theme .coverfi-rewards-pop-up .pop-up__overlay-content-action {
+  pointer-events: auto;
 }
 
 body.coverfi-theme .footer__logo-img,
@@ -2237,7 +2277,21 @@ body.coverfi-info-page .coverfi-partner-final-cta {
 
   body.coverfi-theme .genre {
     margin-top: 1.5rem !important;
-    padding-bottom: 4rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  body.coverfi-theme .genre__inner {
+    padding-bottom: 1.5rem !important;
+  }
+
+  body.coverfi-theme .coverfi-rewards-pop-up-wrap {
+    min-height: 9.5rem;
+    margin-top: 0.35rem;
+  }
+
+  body.coverfi-theme .coverfi-rewards-pop-up {
+    transform: scale(0.9);
+    transform-origin: center top;
   }
 
   body.coverfi-theme .genre__title,
@@ -2432,6 +2486,15 @@ body.coverfi-info-page .coverfi-partner-final-cta {
 
   body.coverfi-theme .coverfi-powered-by__brand {
     font-size: 0.76rem !important;
+  }
+
+  body.coverfi-theme .coverfi-rewards-pop-up-wrap {
+    min-height: 8rem;
+    margin-top: 0.15rem;
+  }
+
+  body.coverfi-theme .coverfi-rewards-pop-up {
+    transform: scale(0.74);
   }
 
   body.coverfi-theme .genre__title,
