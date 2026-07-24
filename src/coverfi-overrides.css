@@ -296,7 +296,7 @@ body.coverfi-theme .coverfi-nav-logo-pop-up {
 }
 
 body.coverfi-theme .coverfi-nav-logo-pop-up .coverfi-nav-logo-overlay {
-  inset: calc(100% + 0.8rem) auto auto 0 !important;
+  inset: calc(100% + 0.15rem) auto auto 0 !important;
   transform-origin: top left;
 }
 
@@ -306,6 +306,12 @@ body.coverfi-theme .coverfi-nav-logo-pop-up.is--open .coverfi-nav-logo-overlay-i
 
 body.coverfi-theme .coverfi-nav-logo-pop-up .coverfi-nav-logo-overlay-inner {
   transform: rotate(4deg) translateY(1.5em);
+  pointer-events: auto;
+}
+
+body.coverfi-theme .coverfi-nav-logo-pop-up .pop-up__overlay-target-zone {
+  clip-path: none !important;
+  inset: -1.5rem -0.9rem -0.9rem -0.9rem !important;
 }
 
 body.coverfi-theme .coverfi-nav-logo-pop-up .pop-up__overlay-content-action {
@@ -352,10 +358,10 @@ body.coverfi-theme .transition__logo {
 }
 
 body.coverfi-theme .transition__logo .coverfi-transition-logo {
-  width: clamp(3.8rem, 8.7vw, 6.9rem) !important;
-  height: clamp(3.8rem, 8.7vw, 6.9rem) !important;
-  max-width: 6.9rem !important;
-  max-height: 6.9rem !important;
+  width: clamp(5rem, 11vw, 9rem) !important;
+  height: clamp(5rem, 11vw, 9rem) !important;
+  max-width: 9rem !important;
+  max-height: 9rem !important;
 }
 
 body.coverfi-theme .coverfi-popup-logo {

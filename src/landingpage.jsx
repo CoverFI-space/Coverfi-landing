@@ -211,7 +211,7 @@ const rewardHoverImageSet = [
 
 const testimonials = [
   {
-    name: "Tael Labs",
+    name: "Tael",
     role: "Design feedback",
     logo: "/assets/logo-tael.png",
     badge: ["UI", "OK"],
@@ -219,44 +219,44 @@ const testimonials = [
       "The UI feels polished and the idea is genuinely useful. CoverFi comes across like a real product, not a thin AI wrapper.",
   },
   {
-    name: "Orbit Desk",
+    name: "TrustLine",
     role: "Stellar builder",
-    logo: "/assets/logo.png",
+    logo: "/assets/trustline.jpg",
     badge: ["UX", "01"],
     quote:
       "The wallet-signed flow is clear. You see the amount, fee, entry price, and reserve state before approving anything.",
   },
   {
-    name: "Nova Pay",
-    role: "Payments team",
-    logo: "/assets/XLM.webp",
+    name: "Rohan",
+    role: "User",
+    logo: "/assets/male-profile.png",
     badge: ["PAY", "02"],
     quote:
       "Username payments make the product feel approachable while still keeping final approval inside the user's wallet.",
   },
   {
-    name: "ClearVault",
+    name: "Vinayak",
     role: "Risk reviewer",
-    logo: "/assets/usdc.webp",
+    logo: "/assets/male-profile.png",
     badge: ["SAFE", "03"],
     quote:
       "The private receipt flow is a strong touch. It gives users a readable record without making every note public.",
   },
   {
-    name: "Signal Studio",
-    role: "Product operator",
-    logo: "/assets/market-price.png",
+    name: "Rahul",
+    role: "Builder",
+    logo: "/assets/male-profile.png",
     badge: ["LIVE", "04"],
     quote:
       "Live prices beside the cover workflow make the decision feel grounded. The quote is easier to trust when the context is right there.",
   },
   {
-    name: "Partner Grid",
-    role: "Integration lead",
-    logo: "/assets/wallet-signed.png",
-    badge: ["API", "05"],
+    name: "TrustLine",
+    role: "Stellar builder",
+    logo: "/assets/trustline.jpg",
+    badge: ["UX", "01"],
     quote:
-      "The partner direction is promising: dashboard, API hooks, SDK support, and signed user actions all fit together cleanly.",
+      "The wallet-signed flow is clear. You see the amount, fee, entry price, and reserve state before approving anything.",
   },
 ];
 
