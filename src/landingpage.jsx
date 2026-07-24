@@ -6,7 +6,7 @@ const landingCopy = {
   brand: "CoverFi",
   title: "CoverFi",
   hero:
-    "CoverFi helps you protect your assets, watch live prices, and get rewards through wallet-signed cover plans.",
+    "Protect the value of every Stellar payment with transparent, wallet-signed coverage, live market intelligence, and rewards built for volatility.",
   badge: "Open source on GitHub",
   primaryCta: "Open CoverFi",
   secondaryCta: "Star on GitHub",
